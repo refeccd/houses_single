@@ -2,7 +2,7 @@ spring:
   datasource:
     druid:
       username: root
-      password: root
+      password: 378024053a*1
       url: jdbc:mysql://rm-wz99j47vts9467b4e.mysql.rds.aliyuncs.com:3306/houses_single?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
       driver-class-name: com.mysql.jdbc.Driver
       max-active: 30
