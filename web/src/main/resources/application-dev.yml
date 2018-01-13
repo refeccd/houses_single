@@ -45,7 +45,6 @@ file:
   prefix: http://127.0.0.1:8081/images
 server:
   port: 8091
-  context-path: /houses
 management:
   port: 8092
 mybatis:
