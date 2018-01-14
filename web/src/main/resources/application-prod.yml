@@ -43,7 +43,7 @@ domain:
   name: 127.0.0.1:8091
 file:
   path: /usr/developer/images
-  prefix: http://127.0.0.1:8081/images
+  prefix: http://120.79.7.142:8081/images
 server:
   port: 8091
 management:
