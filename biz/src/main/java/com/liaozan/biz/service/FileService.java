@@ -5,7 +5,6 @@ import com.google.common.io.Files;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -51,6 +50,6 @@ public class FileService {
 			newFile.createNewFile();
 		}
 		Files.write(file.getBytes(), newFile);
-		return null;
+		return newFile;
 	}
 }

@@ -25,6 +25,15 @@ public interface UserMapper {
 	 * delete
 	 *
 	 * @param email email
+	 * @return int result
 	 */
-	void delete(String email);
+	int delete(String email);
+
+	/**
+	 * update user
+	 *
+	 * @param updateUser user
+	 * @return int result
+	 */
+	int update(User updateUser);
 }
