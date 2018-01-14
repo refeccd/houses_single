@@ -6,6 +6,7 @@ import com.liaozan.common.model.User;
 import com.liaozan.common.utils.BeanHelper;
 import com.liaozan.common.utils.HashUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,8 @@ public class UserService {
 	private FileService fileService;
 	@Autowired
 	private MailService mailServer;
+	@Value("${file.prefix}")
+	private String imgPrefix;
 
 	@Transactional(rollbackFor = Exception.class)
 	public boolean addAccount(User account) {
@@ -42,5 +45,28 @@ public class UserService {
 
 	public boolean enable(String key) {
 		return mailServer.enable(key);
+	}
+
+	public User auth(String userName, String password) {
+		User user = new User();
+		user.setEmail(userName);
+		user.setPasswd(HashUtils.encryPassword(password));
+		user.setEnable(1);
+		List<User> users = getUserByQuery(user);
+		if (!users.isEmpty()) {
+			return users.get(0);
+		}
+		return null;
+	}
+
+	public List<User> getUserByQuery(User user) {
+		List<User> users = userMapper.selectUsersByQuery(user);
+		users.forEach(u -> u.setAvatar(imgPrefix + u.getAvatar()));
+		return users;
+	}
+
+	public void updateUser(User updateUser) {
+		BeanHelper.onUpdate(updateUser);
+		userMapper.update(updateUser);
 	}
 }

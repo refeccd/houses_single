@@ -50,4 +50,3 @@ management:
 mybatis:
   type-aliases-package: com.liaozan.common.model
   mapper-locations: mybatis/mapper/*.xml
-

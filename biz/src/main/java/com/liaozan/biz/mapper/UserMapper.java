@@ -4,6 +4,8 @@ import com.liaozan.common.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author liaozan
  * @version 1.0.0
@@ -36,4 +38,12 @@ public interface UserMapper {
 	 * @return int result
 	 */
 	int update(User updateUser);
+
+	/**
+	 * get user
+	 *
+	 * @param user user
+	 * @return list of user
+	 */
+	List<User> selectUsersByQuery(User user);
 }

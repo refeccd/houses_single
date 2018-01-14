@@ -57,8 +57,8 @@
                             <input type="text" class="form-control" id="form-create-account-email"  name="email" required>
                         </div><!-- /.form-group -->
                         <div class="form-group">
-                            <label for="form-create-account-email">手机号:</label>
-                            <input type="text" class="form-control" id="form-create-account-email"  name="phone" >
+                            <label for="form-create-account-phone">手机号:</label>
+                            <input type="text" class="form-control" id="form-create-account-phone"  name="phone" >
                         </div><!-- /.form-group -->
                         <div class="form-group">
                             <label for="form-create-account-password">密码:</label>

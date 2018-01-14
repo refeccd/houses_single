@@ -14,9 +14,9 @@ import java.util.Map;
  */
 public class ResultMsg {
 
-	private static final String ERROR_MSG_KEY = "errorMsg";
+	public static final String ERROR_MSG_KEY = "errorMsg";
 
-	private static final String SUCCESS_MSG_KEY = "successMsg";
+	public static final String SUCCESS_MSG_KEY = "successMsg";
 
 	private String errorMsg;
 

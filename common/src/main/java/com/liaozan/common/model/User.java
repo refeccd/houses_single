@@ -1,9 +1,12 @@
 package com.liaozan.common.model;
 
-import java.util.Date;
-
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Date;
+
+/**
+ * @author Administrator
+ */
 public class User {
 
 	private Long id;
@@ -18,7 +21,10 @@ public class User {
 
 	private String confirmPasswd;
 
-	private Integer type;//普通用户1，经纪人2
+	/**
+	 * 普通用户1，经纪人2
+	 */
+	private Integer type;
 
 	private Date createTime;
 
