@@ -104,7 +104,7 @@
                     <a href="/house/list" class="link-arrow">所有房源</a>
                 </header>
                 <div class="row">
-                   <#list recomHouses as house>
+                   <#--<#list recomHouses as house>
                     <div class="col-md-3 col-sm-6">
                         <div class="property">
                             <a href="/house/detail?id=${house.id}">
@@ -137,10 +137,10 @@
                                     </ul>
                                 </div>
                             </a>
-                        </div><!-- /.property -->
-                    </div><!-- /.col-md-3 -->
-                   </#list>
-                 
+                        </div><!-- /.property &ndash;&gt;
+                    </div><!-- /.col-md-3 &ndash;&gt;
+                   </#list>-->
+                 ${Request['org.springframework.core.convert.ConversionService']}
                 </div><!-- /.row-->
             </div><!-- /.container-->
         </section><!-- /#new-properties-->

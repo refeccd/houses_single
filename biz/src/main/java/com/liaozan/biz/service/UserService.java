@@ -2,11 +2,12 @@ package com.liaozan.biz.service;
 
 import com.google.common.collect.Lists;
 import com.liaozan.biz.mapper.UserMapper;
+import com.liaozan.common.config.WebApplicationPropertiesConfig;
 import com.liaozan.common.model.User;
 import com.liaozan.common.utils.BeanHelper;
 import com.liaozan.common.utils.HashUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,16 +19,17 @@ import java.util.List;
  * @since 2018/1/14
  */
 @Service
+@EnableConfigurationProperties(WebApplicationPropertiesConfig.class)
 public class UserService {
 
+	@Autowired
+	private WebApplicationPropertiesConfig webApplicationPropertiesConfig;
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
 	private FileService fileService;
 	@Autowired
 	private MailService mailServer;
-	@Value("${file.prefix}")
-	private String imgPrefix;
 
 	@Transactional(rollbackFor = Exception.class)
 	public boolean addAccount(User account) {
@@ -61,7 +63,7 @@ public class UserService {
 
 	public List<User> getUserByQuery(User user) {
 		List<User> users = userMapper.selectUsersByQuery(user);
-		users.forEach(u -> u.setAvatar(imgPrefix + u.getAvatar()));
+		users.forEach(u -> u.setAvatar(webApplicationPropertiesConfig.getNginxserverprefix() + u.getAvatar()));
 		return users;
 	}
 

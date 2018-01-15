@@ -38,11 +38,6 @@ spring:
   output:
     ansi:
       enabled: always
-domain:
-  name: 127.0.0.1:8091
-file:
-  path: F:\imgs
-  prefix: http://127.0.0.1:8081/images
 server:
   port: 8091
 management:
@@ -50,3 +45,8 @@ management:
 mybatis:
   type-aliases-package: com.liaozan.common.model
   mapper-locations: mybatis/mapper/*.xml
+customerApplication:
+  config:
+    domain: 127.0.0.1:8091
+    savapath: F:\imgs
+    nginxserverprefix: http://127.0.0.1:8081/images

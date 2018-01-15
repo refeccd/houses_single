@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "customerApplication.config.domain",
+      "type": "java.lang.String",
+      "description": "applicationUrl."
+    },
+    {
+      "name": "customerApplication.config.savaPath",
+      "type": "java.lang.String",
+      "description": "the path for uploadfile."
+    },
+    {
+      "name": "customerApplication.config.nginxServerPrefix",
+      "type": "java.lang.String",
+      "description": "nginx server url."
+    }
+  ]
+}
