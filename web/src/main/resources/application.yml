@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+  mvc:
+    favicon:
+      enabled: false
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

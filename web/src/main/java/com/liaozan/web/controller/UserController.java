@@ -4,6 +4,7 @@ import com.liaozan.biz.service.UserService;
 import com.liaozan.common.constants.CommonConstants;
 import com.liaozan.common.model.User;
 import com.liaozan.common.result.ResultMsg;
+import com.liaozan.common.utils.HashUtils;
 import com.liaozan.web.utils.UserHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author liaozan
@@ -88,4 +90,17 @@ public class UserController {
 		return "redirect:/accounts/profile?" + ResultMsg.successMsg("更新成功").asUrlParams();
 	}
 
+	@RequestMapping("changePassword")
+	public String changePassword(User user) {
+		if (!Objects.equals(user.getNewPassword(), user.getConfirmPasswd())) {
+			return "redirect:/accounts/profile?" + ResultMsg.errorMsg("两次密码输入不一致").asUrlParams();
+		}
+		User auth = userService.auth(user.getEmail(), user.getPasswd());
+		if (auth == null) {
+			return "redirect:/accounts/profile?" + ResultMsg.errorMsg("密码错误").asUrlParams();
+		}
+		user.setPasswd(HashUtils.encryPassword(user.getNewPassword()));
+		userService.updateUser(user);
+		return "redirect:/accounts/profile?" + ResultMsg.successMsg("更新密码成功").asUrlParams();
+	}
 }

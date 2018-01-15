@@ -2,16 +2,21 @@ package com.liaozan.common.model;
 
 import java.util.Date;
 
+/**
+ * @author liaozan
+ * @version 1.0.0
+ * @since 2018/1/15
+ */
 public class UserMsg {
 
 	private Long id;
 	private String msg;
-	private Long  userId;
-	private Date  createTime;
-	private Long  agentId;
-	private Long  houseId;
+	private Long userId;
+	private Date createTime;
+	private Long agentId;
+	private Long houseId;
 	private String email;
-	
+
 	private String userName;
 
 	public Long getId() {

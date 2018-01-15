@@ -2,6 +2,11 @@ package com.liaozan.common.page;
 
 import java.util.List;
 
+/**
+ * @author liaozan
+ * @version 1.0.0
+ * @since 2018/1/15
+ */
 public class PageData<T> {
 
 	private List<T> list;
@@ -29,8 +34,8 @@ public class PageData<T> {
 	}
 
 	public static <T> PageData<T> buildPage(List<T> list, Long count, Integer pageSize, Integer pageNum) {
-		Pagination _pagination = new Pagination(pageSize, pageNum, count);
-		return new PageData<>(_pagination, list);
+		Pagination pagination = new Pagination(pageSize, pageNum, count);
+		return new PageData<>(pagination, list);
 	}
 
 }

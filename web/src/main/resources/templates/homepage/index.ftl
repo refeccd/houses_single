@@ -140,7 +140,6 @@
                         </div><!-- /.property &ndash;&gt;
                     </div><!-- /.col-md-3 &ndash;&gt;
                    </#list>-->
-                 ${Request['org.springframework.core.convert.ConversionService']}
                 </div><!-- /.row-->
             </div><!-- /.container-->
         </section><!-- /#new-properties-->

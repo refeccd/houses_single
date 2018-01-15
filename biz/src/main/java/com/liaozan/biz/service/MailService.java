@@ -37,7 +37,7 @@ public class MailService {
 	private JavaMailSender mailSender;
 	@Value("${spring.mail.username}")
 	private String from;
-	
+
 	private final Cache<String, String> registerCache = CacheBuilder.newBuilder().maximumSize(100).expireAfterAccess(15, TimeUnit.MINUTES).removalListener(new RemovalListener<String, String>() {
 		@Override
 		public void onRemoval(RemovalNotification<String, String> notification) {
@@ -49,10 +49,10 @@ public class MailService {
 	 * send email
 	 *
 	 * @param title title for mail
-	 * @param url   content
+	 * @param url content
 	 * @param email to
 	 */
-	private void sendMail(String title, String url, String email) {
+	public void sendMail(String title, String url, String email) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom(from);
 		message.setTo(email);
@@ -65,7 +65,7 @@ public class MailService {
 	public void registerNotify(String email) {
 		String randomKey = RandomStringUtils.randomAlphabetic(10);
 		registerCache.put(randomKey, email);
-		String url = "http://" + webApplicationPropertiesConfig.getDomain() + "/accounts/vevify?key=" + randomKey;
+		String url = "http://" + webApplicationPropertiesConfig.getDomain() + "/accounts/verify?key=" + randomKey;
 		sendMail("激活邮件", url, email);
 	}
 
