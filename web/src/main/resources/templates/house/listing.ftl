@@ -50,14 +50,14 @@
                                 <figure class="tag status">${house.typeStr}</figure>
                                 <div class="property-image">
                                     <figure class="ribbon">In Hold</figure>
-                                    <a href="/house/detail?id=${house.id}">
+                                    <a href="/house/detail/${house.id}">
                                         <img alt="" src="${house.firstImg}" style="width: 260px;height: 195px" >
                                     </a>
                                 </div>
 
                                 <div class="info">
                                     <header>
-                                        <a href="/house/detail?id=${house.id}"><h3>${house.name}</h3></a>
+                                        <a href="/house/detail/${house.id}"><h3>${house.name}</h3></a>
                                         <figure>${house.address}</figure>
 
                                     </header>
@@ -77,7 +77,7 @@
                                                 <dd>${house.baths}</dd>
                                         </dl>
                                     </aside>
-                                    <a href="/house/detail?id=${house.id}" class="link-arrow">Read More</a>
+                                    <a href="/house/detail/${house.id}" class="link-arrow">Read More</a>
                                 </div>
                             </div>
                         </#list>
@@ -119,13 +119,13 @@
                             <header><h3>热门房产</h3></header>
                             <#list recomHouses as house>
                             <div class="property small">
-                                <a href="/house/detail?id=${house.id}">
+                                <a href="/house/detail/${house.id}">
                                     <div class="property-image">
                                         <img alt="" src="${(house.firstImg)!}" style="width: 100px;height: 75px">
                                     </div>
                                 </a>
                                 <div class="info">
-                                    <a href="/house/detail?id=${house.id}"><h4>${(house.name)!}</h4></a>
+                                    <a href="/house/detail/${house.id}"><h4>${(house.name)!}</h4></a>
                                     <figure>${(house.address)!} </figure>
                                     <div class="tag price">￥${(house.price)!} 万</div>
                                 </div>
