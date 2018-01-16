@@ -25,16 +25,14 @@ spring:
     admin:
       url: http://localhost:8070
   mail:
-    host: 14.18.245.164
+    host: smtp.qq.com
     port: 465
     username: 378024053@qq.com
     password: siupikirvjarbhch
     properties:
       mail:
         smtp:
-          socketFactory:
-            class: javax.net.ssl.SSLSocketFactory
-            port: 465
+          socketFactory.class: javax.net.ssl.SSLSocketFactory
           auth: true
           starttls:
             enable: true
