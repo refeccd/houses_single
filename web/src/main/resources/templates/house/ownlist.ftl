@@ -57,10 +57,10 @@
                                  <#list ps.list as house> 
                                     <tr>
                                         <td class="image">
-                                            <a href="/house/detail?id=${house.id}"><img alt="" src="${house.firstImg}" style="width: 105px;height: 78px"></a>
+                                            <a href="/house/detail/${house.id}"><img alt="" src="${house.firstImg}" style="width: 105px;height: 78px"></a>
                                         </td>
                                         <td><div class="inner">
-                                            <a href="/house/detail?id=${house.id}"><h2>${house.name}</h2></a>
+                                            <a href="/house/detail/${house.id}"><h2>${house.name}</h2></a>
                                             <figure>${house.address}</figure>
                                             <div class="tag price">${house.price}</div>
                                         </div>
@@ -68,7 +68,7 @@
                                         <td>${(house.createTime?datetime)}</td>
                                         <td><#if house.state==1>上架<#else>停售</#if></td>
                                         <td class="actions">
-                                            <a href="/house/del?id=${house.id}&pageType=${pageType}"><i class="delete fa fa-trash-o"></i></a>
+                                            <a href="/house/del/${house.id}&pageType=${pageType}"><i class="delete fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
                                  </#list>
