@@ -52,4 +52,9 @@ public class RecommandService {
 		return houseSort.sortedCopy(houses);
 	}
 
+	public List<House> getLastest() {
+		House query = new House();
+		query.setSort("create_time");
+		return houseService.queryAndSetImg(query,PageParams.build(8,1));
+	}
 }

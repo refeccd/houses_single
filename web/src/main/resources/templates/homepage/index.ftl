@@ -104,10 +104,10 @@
                     <a href="/house/list" class="link-arrow">所有房源</a>
                 </header>
                 <div class="row">
-                   <#--<#list recomHouses as house>
+                    <#list recomHouses as house>
                     <div class="col-md-3 col-sm-6">
                         <div class="property">
-                            <a href="/house/detail?id=${house.id}">
+                            <a href="/house/detail/${house.id}">
                                 <div class="property-image">
                                     <img alt="" src="${(house.firstImg)!}" style="width: 262px;height: 196px">
                                 </div>
@@ -137,9 +137,9 @@
                                     </ul>
                                 </div>
                             </a>
-                        </div><!-- /.property &ndash;&gt;
-                    </div><!-- /.col-md-3 &ndash;&gt;
-                   </#list>-->
+                        </div><!-- /.property -->
+                    </div><!-- /.col-md-3 -->
+                   </#list>
                 </div><!-- /.row-->
             </div><!-- /.container-->
         </section><!-- /#new-properties-->
