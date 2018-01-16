@@ -28,9 +28,9 @@
                         <header><h1>Agencies Listing</h1></header>
                         <#list agencyList as agency>
                            <div class="agency">
-                            <a href="/agency/agencyDetail?id=${agency.id}" class="agency-image"><img alt="" src="/static/assets/img/agency-logo-02.png"></a>
+                            <a href="/agency/agencyDetail/${agency.id}" class="agency-image"><img alt="" src="/static/assets/img/agency-logo-02.png"></a>
                             <div class="wrapper">
-                                <header><a href="/agency/agencyDetail?id=${agency.id}"><h2>${agency.name}</h2></a></header>
+                                <header><a href="/agency/agencyDetail/${agency.id}"><h2>${agency.name}</h2></a></header>
                                 <dl>
                                     <dt>手机:</dt>
                                     <dd>${agency.phone}</dd>

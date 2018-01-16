@@ -30,9 +30,9 @@
                           <#list ps.list as agent>
                             <div class="col-md-12 col-lg-6" >
                                 <div class="agent">
-                                    <a href="/agency/agentDetail?id=${agent.id!}" class="agent-image"><img alt="" src="${agent.avatar}"></a>
+                                    <a href="/agency/agentDetail/${agent.id!}" class="agent-image"><img alt="" src="${agent.avatar}"></a>
                                     <div class="wrapper">
-                                        <header><a href="/agency/agentDetail?id=${agent.id!}"><h2>${agent.name!}</h2></a></header>
+                                        <header><a href="/agency/agentDetail/${agent.id!}"><h2>${agent.name!}</h2></a></header>
                                         <dl>
                                             <dt>Phone:</dt>
                                             <dd>${agent.phone!}</dd>

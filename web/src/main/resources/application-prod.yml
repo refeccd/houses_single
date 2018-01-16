@@ -49,7 +49,7 @@ mybatis:
   mapper-locations: mybatis/mapper/*.xml
 customerApplication:
   config:
-    domain: 127.0.0.1:8091
+    domain: 129.79.7.142:8091
     savapath: /usr/developer/images
     nginxserverprefix: http://120.79.7.142:8081/images
 

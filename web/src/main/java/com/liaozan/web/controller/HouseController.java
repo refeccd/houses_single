@@ -2,6 +2,8 @@ package com.liaozan.web.controller;
 
 import com.liaozan.biz.service.AgencyService;
 import com.liaozan.biz.service.HouseService;
+import com.liaozan.biz.service.RecommandService;
+import com.liaozan.common.constants.CommonConstants;
 import com.liaozan.common.model.House;
 import com.liaozan.common.model.HouseUser;
 import com.liaozan.common.model.UserMsg;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * @author liaozan
@@ -25,10 +29,14 @@ public class HouseController {
 	private HouseService houseService;
 	@Autowired
 	private AgencyService agencyService;
+	@Autowired
+	private RecommandService recommandService;
 
 	@RequestMapping("list")
 	public String houseList(Integer pageSize, Integer pageNum, House query, ModelMap modelMap) {
 		PageData<House> housePageData = houseService.queryHouse(query, PageParams.build(pageSize, pageNum));
+		List<House> recommandHouses = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
+		modelMap.put("recomHouses",recommandHouses);
 		modelMap.put("ps", housePageData);
 		modelMap.put("vo", query);
 		return "/house/listing";
@@ -38,9 +46,12 @@ public class HouseController {
 	public String houseDetail(@PathVariable Long id, ModelMap modelMap) {
 		House house = houseService.queryOneHouse(id);
 		HouseUser houseUser = houseService.getHouseUser(id);
+		recommandService.increase(id);
 		if (houseUser.getUserId() != null && !houseUser.getUserId().equals(0L)) {
 			modelMap.put("agent", agencyService.getAgentDetail(houseUser.getUserId()));
 		}
+		List<House> recommandHouses = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
+		modelMap.put("recomHouses",recommandHouses);
 		modelMap.put("house", house);
 		return "/house/detail";
 	}
@@ -48,6 +59,6 @@ public class HouseController {
 	@RequestMapping("leaveMsg")
 	public String houseMsg(UserMsg userMsg) {
 		houseService.addHouseMsg(userMsg);
-		return "redirect:/house/detail/" + userMsg.getId();
+		return "redirect:/house/detail/" + userMsg.getHouseId();
 	}
 }

@@ -47,7 +47,7 @@ public class HouseService {
 		return PageData.buildPage(houses, count, pageParams.getPageSize(), pageParams.getPageNum());
 	}
 
-	private List<House> queryAndSetImg(House query, PageParams pageParams) {
+	public List<House> queryAndSetImg(House query, PageParams pageParams) {
 		List<House> houses = houseMapper.selectPageHouses(query, pageParams);
 		houses.forEach(house -> {
 			house.setFirstImg(webApplicationPropertiesConfig.getNginxserverprefix() + house.getFirstImg());
@@ -70,8 +70,8 @@ public class HouseService {
 	public void addHouseMsg(UserMsg userMsg) {
 		BeanHelper.onInsert(userMsg);
 		houseMapper.insertUserMsg(userMsg);
-		User user = agencyService.getAgentDetail(userMsg.getUserId());
-		mailService.sendMail("来自用户" + userMsg.getEmail() + "的留言", userMsg.getMsg(), user.getEmail());
+		User agent = agencyService.getAgentDetail(userMsg.getAgentId());
+		mailService.sendMail("来自用户" + userMsg.getEmail() + "的留言", userMsg.getMsg(), agent.getEmail());
 	}
 
 	public HouseUser getHouseUser(Long houseId) {

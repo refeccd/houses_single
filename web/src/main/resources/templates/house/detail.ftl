@@ -129,7 +129,7 @@
                                         <section class="agent-form">
                                             <div class="col-md-7 col-sm-12">
                                                 <aside class="agent-info clearfix">
-                                                    <figure><a href="/agency/agentDetail?id=${(agent.id)!}"><img alt="" src="${(agent.avatar)!}"></a></figure>
+                                                    <figure><a href="/agency/agentDetail/${(agent.id)!}"><img alt="" src="${(agent.avatar)!}"></a></figure>
                                                     <div class="agent-contact-info">
                                                         <h3>${(agent.name)!}</h3>
                                                         <p>
@@ -244,21 +244,22 @@
                         </aside><!-- /#edit-search -->
                         <aside id="featured-properties">
                             <header><h3>热门房产</h3></header>
-                            <#--<#list recomHouses as house>
+                            <#list recomHouses as house>
                             <div class="property small">
-                                <a href="/house/detail?id=${house.id}">
+                                <a href="/house/detail/${house.id}">
                                     <div class="property-image">
                                         <img alt="" src="${(house.firstImg)!}" style="width: 100px;height: 75px">
                                     </div>
                                 </a>
                                 <div class="info">
-                                    <a href="/house/detail?id=${house.id}"><h4>${(house.name)!}</h4></a>
+                                    <a href="/house/detail/{house.id}"><h4>${(house.name)!}</h4></a>
                                     <figure>${(house.address)!} </figure>
                                     <div class="tag price">￥${(house.price)!}</div>
                                 </div>
-                            </div><!-- /.property &ndash;&gt;
-                            </#list>-->
-                        </aside><!-- /#featured-properties -->
+                            </div><!-- /.property &ndash;&gt;-->
+                            </#list>
+                        </aside>
+                        <!-- /#featured-properties -->
                        
                     </section><!-- /#sidebar -->
                 </div><!-- /.col-md-3 -->

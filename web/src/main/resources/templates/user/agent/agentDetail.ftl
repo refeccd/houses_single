@@ -59,7 +59,7 @@
                                   <#list bindHouses as house>
                                     <div class="col-md-4 col-sm-4">
                                         <div class="property">
-                                            <a href="/house/detail?id=${house.id}">
+                                            <a href="/house/detail/${house.id}">
                                                 <div class="property-image">
                                                     <img alt="" src="/static/assets/img/properties/property-09.jpg">
                                                 </div>

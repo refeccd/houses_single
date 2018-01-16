@@ -3,6 +3,7 @@ package com.liaozan.biz.service;
 import com.liaozan.biz.mapper.AgencyMapper;
 import com.liaozan.common.config.WebApplicationPropertiesConfig;
 import com.liaozan.common.model.User;
+import com.liaozan.common.page.PageData;
 import com.liaozan.common.page.PageParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -39,5 +40,13 @@ public class AgencyService {
 		users.forEach(user -> {
 			user.setAvatar(webApplicationPropertiesConfig.getNginxserverprefix() + user.getAvatar());
 		});
+	}
+
+	public PageData<User> getAllAgent(PageParams pageParams) {
+		User user = new User();
+		List<User> agents = agencyMapper.selectAgent(user, pageParams);
+		setImg(agents);
+		Long agentCount = agencyMapper.selectAgentCount(user);
+		return PageData.buildPage(agents,agentCount,pageParams.getPageSize(),pageParams.getPageNum());
 	}
 }

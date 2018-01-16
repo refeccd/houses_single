@@ -117,7 +117,7 @@
                         </aside><!-- /#edit-search -->
                         <aside id="featured-properties">
                             <header><h3>热门房产</h3></header>
-                            <#--<#list recomHouses as house>
+                            <#list recomHouses as house>
                             <div class="property small">
                                 <a href="/house/detail/${house.id}">
                                     <div class="property-image">
@@ -129,8 +129,8 @@
                                     <figure>${(house.address)!} </figure>
                                     <div class="tag price">￥${(house.price)!} 万</div>
                                 </div>
-                            </div><!-- /.property &ndash;&gt;
-                            </#list>-->
+                            </div><!-- /.property &ndash;&gt;-->
+                            </#list>
                             
                         </aside><!-- /#featured-properties -->
                         
