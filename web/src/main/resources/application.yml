@@ -4,6 +4,10 @@ spring:
   mvc:
     favicon:
       enabled: false
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

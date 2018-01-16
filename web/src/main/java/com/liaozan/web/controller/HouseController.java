@@ -1,14 +1,17 @@
 package com.liaozan.web.controller;
 
 import com.liaozan.biz.service.AgencyService;
+import com.liaozan.biz.service.CityService;
 import com.liaozan.biz.service.HouseService;
 import com.liaozan.biz.service.RecommandService;
 import com.liaozan.common.constants.CommonConstants;
 import com.liaozan.common.model.House;
 import com.liaozan.common.model.HouseUser;
+import com.liaozan.common.model.User;
 import com.liaozan.common.model.UserMsg;
 import com.liaozan.common.page.PageData;
 import com.liaozan.common.page.PageParams;
+import com.liaozan.web.utils.UserContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,12 +34,14 @@ public class HouseController {
 	private AgencyService agencyService;
 	@Autowired
 	private RecommandService recommandService;
+	@Autowired
+	private CityService cityService;
 
 	@RequestMapping("list")
 	public String houseList(Integer pageSize, Integer pageNum, House query, ModelMap modelMap) {
 		PageData<House> housePageData = houseService.queryHouse(query, PageParams.build(pageSize, pageNum));
 		List<House> recommandHouses = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
-		modelMap.put("recomHouses",recommandHouses);
+		modelMap.put("recomHouses", recommandHouses);
 		modelMap.put("ps", housePageData);
 		modelMap.put("vo", query);
 		return "/house/listing";
@@ -51,7 +56,7 @@ public class HouseController {
 			modelMap.put("agent", agencyService.getAgentDetail(houseUser.getUserId()));
 		}
 		List<House> recommandHouses = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
-		modelMap.put("recomHouses",recommandHouses);
+		modelMap.put("recomHouses", recommandHouses);
 		modelMap.put("house", house);
 		return "/house/detail";
 	}
@@ -60,5 +65,30 @@ public class HouseController {
 	public String houseMsg(UserMsg userMsg) {
 		houseService.addHouseMsg(userMsg);
 		return "redirect:/house/detail/" + userMsg.getHouseId();
+	}
+
+	@RequestMapping("toAdd")
+	public String toAdd(ModelMap modelMap) {
+		modelMap.put("citys", cityService.getAllCitys());
+		modelMap.put("communitys", houseService.getAllCommunitys());
+		return "/house/add";
+	}
+
+	@RequestMapping("add")
+	public String add(House house) {
+		User user = UserContext.getUser();
+		house.setState(CommonConstants.HOUSE_STATE_UP);
+		houseService.addHouse(house, user);
+		return "redirect:/house/ownlist";
+	}
+
+	@RequestMapping("ownlist")
+	public String ownList(House house,Integer pageNum,Integer pageSize,ModelMap modelMap){
+		User user = UserContext.getUser();
+		house.setUserId(user.getId());
+		house.setBookmarked(false);
+		modelMap.put("ps",houseService.queryHouse(house,PageParams.build(pageSize,pageNum)));
+		modelMap.put("pageType","own");
+		return "/house/ownlist";
 	}
 }

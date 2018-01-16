@@ -57,13 +57,13 @@ public class UserController {
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 		String target = request.getParameter("target");
-		if (userName == null && password == null) {
+		if (userName == null || password == null) {
 			request.setAttribute("target", target);
 			return "/user/accounts/signin";
 		}
 		User user = userService.auth(userName, password);
 		if (user == null) {
-			return "redirect:/accouts/signin?target=" + target + "&username=" + userName + "&" + ResultMsg.errorMsg("用户名或密码错误").asUrlParams();
+			return "redirect:/accounts/signin?target=" + target + "&username=" + userName + "&" + ResultMsg.errorMsg("用户名或密码错误").asUrlParams();
 		} else {
 			HttpSession session = request.getSession();
 			session.setAttribute(CommonConstants.USER_ATTRIBUTE, user);

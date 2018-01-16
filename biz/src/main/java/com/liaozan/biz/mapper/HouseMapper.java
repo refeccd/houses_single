@@ -1,6 +1,9 @@
 package com.liaozan.biz.mapper;
 
-import com.liaozan.common.model.*;
+import com.liaozan.common.model.Community;
+import com.liaozan.common.model.House;
+import com.liaozan.common.model.HouseUser;
+import com.liaozan.common.model.UserMsg;
 import com.liaozan.common.page.PageParams;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -20,8 +23,6 @@ public interface HouseMapper {
 	List<House> selectPageHouses(@Param("house") House house, @Param("pageParams") PageParams pageParams);
 
 	Long selectPageCount(@Param("house") House query);
-
-	int insert(User account);
 
 	List<Community> selectCommunity(Community community);
 

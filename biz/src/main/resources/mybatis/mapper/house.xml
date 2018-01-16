@@ -87,7 +87,7 @@
         </if>
     </select>
 
-    <select id="selectPageCount" resultType="long">
+    <select id="selectPageCount" resultType="java.lang.Long">
         select count(id)
         from house a
         <include refid="houseCondition"/>
@@ -129,7 +129,7 @@
         LIMIT 1
     </select>
 
-    <update id="updateHouse">
+    <update id="updateHouse" parameterType="com.liaozan.common.model.House">
         UPDATE house
         SET rating = #{rating}
         WHERE id = #{id}
@@ -163,27 +163,27 @@
             state
         )
         VALUES (
-        #{type},
-        #{name},
-        #{price},
-        #{images},
-        #{area},
-        #{beds},
-        #{baths},
-        #{rating},
-        #{remarks},
-        #{properties},
-        #{floorPlan},
-        #{tags},
-        #{createTime},
-        #{cityId},
-        #{communityId},
-        #{address},
-        #{state}
+            #{type},
+            #{name},
+            #{price},
+            #{images},
+            #{area},
+            #{beds},
+            #{baths},
+            #{rating},
+            #{remarks},
+            #{properties},
+            #{floorPlan},
+            #{tags},
+            #{createTime},
+            #{cityId},
+            #{communityId},
+            #{address},
+            #{state}
         )
     </insert>
 
-    <insert id="insertHouseUser">
+    <insert id="insertHouseUser" parameterType="com.liaozan.common.model.HouseUser">
         INSERT INTO house_user (
             house_id,
             user_id,

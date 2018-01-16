@@ -25,7 +25,7 @@ public class RequestLogger {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RequestLogger.class);
 
-	@Pointcut("execution(* *com.liaozan.web..*(..))")
+	@Pointcut("execution(* *com.liaozan.web.controller.*(..))")
 	public void pointCut() {
 	}
 
