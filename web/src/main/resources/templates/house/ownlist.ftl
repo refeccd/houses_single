@@ -68,7 +68,7 @@
                                         <td>${(house.createTime?datetime)}</td>
                                         <td><#if house.state==1>上架<#else>停售</#if></td>
                                         <td class="actions">
-                                            <a href="/house/del/${house.id}&pageType=${pageType}"><i class="delete fa fa-trash-o"></i></a>
+                                            <a href="/house/del/${house.id}?pageType=${pageType}"><i class="delete fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
                                  </#list>

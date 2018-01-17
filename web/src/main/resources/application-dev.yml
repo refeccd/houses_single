@@ -40,8 +40,6 @@ spring:
       enabled: always
 server:
   port: 80
-management:
-  port: 8092
 mybatis:
   type-aliases-package: com.liaozan.common.model
   mapper-locations: mybatis/mapper/*.xml

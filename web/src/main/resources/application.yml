@@ -8,6 +8,13 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 100MB
+  boot:
+    admin:
+      url: http://127.0.0.1:8070
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+management:
+  port: 8092
+  security:
+    enabled: false
