@@ -1,10 +1,9 @@
 package com.liaozan.web.utils;
 
+import com.google.common.base.Objects;
 import com.liaozan.common.model.User;
 import com.liaozan.common.result.ResultMsg;
 import org.apache.commons.lang3.StringUtils;
-
-import com.google.common.base.Objects;
 
 /**
  * @author liaozan
@@ -13,18 +12,17 @@ import com.google.common.base.Objects;
  */
 public class UserHelper {
 
+	private static final Integer PASSWORD_LENGTH = 6;
+
 	public static ResultMsg validate(User accout) {
 		if (StringUtils.isBlank(accout.getEmail())) {
-			return ResultMsg.errorMsg("Email 有误");
-		}
-		if (StringUtils.isBlank(accout.getEmail())) {
-			return ResultMsg.errorMsg("Email 有误");
+			return ResultMsg.errorMsg("Email有误");
 		}
 		if (StringUtils.isBlank(accout.getConfirmPasswd()) || StringUtils.isBlank(accout.getPasswd()) || !accout.getPasswd().equals(accout.getConfirmPasswd())) {
-			return ResultMsg.errorMsg("Email 有误");
+			return ResultMsg.errorMsg("请输入正确的密码");
 		}
-		if (accout.getPasswd().length() < 6) {
-			return ResultMsg.errorMsg("密码大于6位");
+		if (accout.getPasswd().length() < PASSWORD_LENGTH) {
+			return ResultMsg.errorMsg("密码不能小于" + PASSWORD_LENGTH + "位");
 		}
 		return ResultMsg.successMsg("");
 	}

@@ -1,5 +1,10 @@
 package com.liaozan.common.model;
 
+/**
+ * @author liaozan
+ * @version 1.0.0
+ * @since 2018/1/15
+ */
 public class Agency {
 
 	private Integer id;

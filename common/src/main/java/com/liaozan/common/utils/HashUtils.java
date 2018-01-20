@@ -12,12 +12,12 @@ import java.nio.charset.Charset;
  * @since 2018/1/14
  */
 public class HashUtils {
-	private static final HashFunction FUNCTION = Hashing.md5();
+	private static final HashFunction FUNCTION = Hashing.sha256();
 
 	private static final String SALT = "liaozan.com";
 
-	public static String encryPassword(String password){
-		HashCode hashCode = FUNCTION.hashString(password+SALT, Charset.forName("UTF-8"));
+	public static String encryPassword(String password) {
+		HashCode hashCode = FUNCTION.hashString(password + SALT, Charset.forName("UTF-8"));
 		return hashCode.toString();
 	}
 

@@ -18,12 +18,37 @@ import java.util.List;
 @Repository
 public interface AgencyMapper {
 
+	/**
+	 * select
+	 *
+	 * @param agency param
+	 * @return result
+	 */
 	List<Agency> select(Agency agency);
 
+	/**
+	 * insert
+	 *
+	 * @param agency param
+	 * @return result
+	 */
 	int insert(Agency agency);
 
+	/**
+	 * selectAgent
+	 *
+	 * @param user       user
+	 * @param pageParams pageParams
+	 * @return result
+	 */
 	List<User> selectAgent(@Param("user") User user, @Param("pageParams") PageParams pageParams);
 
+	/**
+	 * selectAgentCount
+	 *
+	 * @param user user
+	 * @return result
+	 */
 	Long selectAgentCount(@Param("user") User user);
 
 }

@@ -95,6 +95,7 @@ public class HouseService {
 		}
 		if (CollectionUtils.isNotEmpty(house.getFloorPlanFiles())) {
 			String images = Joiner.on(",").join(fileService.getImgPath(house.getFloorPlanFiles()));
+			house.setFloorPlan(images);
 		}
 		BeanHelper.onInsert(house);
 		houseMapper.insert(house);
