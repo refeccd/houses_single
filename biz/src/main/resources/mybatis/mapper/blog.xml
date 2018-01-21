@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mooc.house.biz.mapper.BlogMapper">
+<mapper namespace="com.liaozan.biz.mapper.BlogMapper">
 
     <sql id="blogField">
         id, tags, content, create_time, title
     </sql>
 
-    <select id="selectBlog" resultType="blog">
+    <select id="selectBlog" resultType="com.liaozan.common.model.Blog">
         select
         <include refid="blogField"/>
         from blog a
         <where>
-            <if test="blog.id != null   and blog.id != 0">
+            <if test="blog.id != null and blog.id != 0">
                 and id = #{blog.id}
             </if>
         </where>
