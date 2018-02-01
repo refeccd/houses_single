@@ -6,7 +6,6 @@ import com.liaozan.common.model.User;
 import com.liaozan.common.result.ResultMsg;
 import com.liaozan.web.utils.UserContext;
 import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,11 +43,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			UserContext.setUser(user);
 		}
 		return true;
-	}
-
-	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
-
 	}
 
 	@Override
