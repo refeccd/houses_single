@@ -43,7 +43,7 @@ public class RequestLogger {
 				LOGGER.debug("【CLASS_METHOD】: {}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
 				LOGGER.debug("【ARGS】: {}", joinPoint.getArgs());
 				result = joinPoint.proceed(joinPoint.getArgs());
-				LOGGER.debug("【RESULT】:{}",result);
+				LOGGER.debug("【RESULT】:{}", result);
 			} catch (Throwable e) {
 				LOGGER.error("【ERROR】: {} --> {}", e.getMessage(), e);
 				throw e;

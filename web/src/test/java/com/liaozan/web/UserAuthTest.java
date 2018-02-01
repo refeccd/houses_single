@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UserAuthTest {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	@Test
 	public void testAuth() {

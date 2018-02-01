@@ -6,8 +6,8 @@ import com.liaozan.common.model.User;
 import com.liaozan.common.result.ResultMsg;
 import com.liaozan.web.utils.UserContext;
 import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +20,7 @@ import java.util.Map;
  * @since 2018/1/14
  */
 @Component
-public class AuthInterceptor implements HandlerInterceptor {
+public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 	private static final String PATTEN_STATIC = "/static";
 	private static final String PATTEN_ERROR = "/error";
