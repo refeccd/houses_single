@@ -20,14 +20,13 @@ public class HomePageController {
 	private RecommandService recommendService;
 
 	@RequestMapping("index")
-	public String accountsRegister(ModelMap modelMap){
+	public String accountsRegister(ModelMap modelMap) {
 		return "redirect:/";
 	}
 
-
 	@RequestMapping("")
-	public String index(ModelMap modelMap){
-		List<House> houses =  recommendService.getLastest();
+	public String index(ModelMap modelMap) {
+		List<House> houses = recommendService.getLastest();
 		modelMap.put("recomHouses", houses);
 		return "/homepage/index";
 	}

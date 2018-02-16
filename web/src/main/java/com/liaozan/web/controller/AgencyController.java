@@ -33,27 +33,27 @@ public class AgencyController {
 	private RecommandService recommandService;
 
 	@RequestMapping("agentList")
-	public String agencyList(Integer pageSize,Integer pageNum,ModelMap modelMap){
-		PageData<User> pageData =  agencyService.getAllAgent(PageParams.build(pageSize,pageNum));
+	public String agencyList(Integer pageSize, Integer pageNum, ModelMap modelMap) {
+		PageData<User> pageData = agencyService.getAllAgent(PageParams.build(pageSize, pageNum));
 		List<House> hotHouse = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
-		modelMap.put("recomHouses",hotHouse);
-		modelMap.put("ps",pageData);
+		modelMap.put("recomHouses", hotHouse);
+		modelMap.put("ps", pageData);
 		return "/user/agent/agentList";
 	}
 
 	@RequestMapping("agentDetail/{id}")
-	public String agentDetail(@PathVariable Long id,ModelMap modelMap){
+	public String agentDetail(@PathVariable Long id, ModelMap modelMap) {
 		User agentDetail = agencyService.getAgentDetail(id);
 		House query = new House();
 		query.setUserId(id);
 		query.setBookmarked(false);
 		PageData<House> housePageData = houseService.queryHouse(query, new PageParams(3, 1));
-		if(housePageData != null){
-			modelMap.put("bindHouses",housePageData.getList());
+		if (housePageData != null) {
+			modelMap.put("bindHouses", housePageData.getList());
 		}
 		List<House> hotHouse = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
-		modelMap.put("recomHouses",hotHouse);
-		modelMap.put("agent",agentDetail);
+		modelMap.put("recomHouses", hotHouse);
+		modelMap.put("agent", agentDetail);
 		return "/user/agent/agentDetail";
 	}
 }

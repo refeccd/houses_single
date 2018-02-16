@@ -5,23 +5,23 @@
 		return $(this).each(function () {
 			// set options for current element
 			var settings = $.extend({}, $.fn.countTo.defaults, {
-				from:            $(this).data('from'),
-				to:              $(this).data('to'),
-				speed:           $(this).data('speed'),
+				from: $(this).data('from'),
+				to: $(this).data('to'),
+				speed: $(this).data('speed'),
 				refreshInterval: $(this).data('refresh-interval'),
-				decimals:        $(this).data('decimals')
+				decimals: $(this).data('decimals')
 			}, options);
 
 			// how many times to update the value, and how much to increment the value on each update
 			var loops = Math.ceil(settings.speed / settings.refreshInterval),
-				increment = (settings.to - settings.from) / loops;
+					increment = (settings.to - settings.from) / loops;
 
 			// references & variables that will change with each update
 			var self = this,
-				$self = $(this),
-				loopCount = 0,
-				value = settings.from,
-				data = $self.data('countTo') || {};
+					$self = $(this),
+					loopCount = 0,
+					value = settings.from,
+					data = $self.data('countTo') || {};
 
 			$self.data('countTo', data);
 

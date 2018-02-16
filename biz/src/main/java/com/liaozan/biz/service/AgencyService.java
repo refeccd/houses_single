@@ -47,6 +47,6 @@ public class AgencyService {
 		List<User> agents = agencyMapper.selectAgent(user, pageParams);
 		setImg(agents);
 		Long agentCount = agencyMapper.selectAgentCount(user);
-		return PageData.buildPage(agents,agentCount,pageParams.getPageSize(),pageParams.getPageNum());
+		return PageData.buildPage(agents, agentCount, pageParams.getPageSize(), pageParams.getPageNum());
 	}
 }

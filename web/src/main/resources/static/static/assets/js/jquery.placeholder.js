@@ -1,5 +1,5 @@
 /*! http://mths.be/placeholder v2.0.7 by @mathias */
-;(function(window, document, $) {
+;(function (window, document, $) {
 
 	// Opera Mini v7 doesn’t support placeholder although its DOM seems to indicate so
 	var isOperaMini = Object.prototype.toString.call(window.operamini) == '[object OperaMini]';
@@ -13,7 +13,7 @@
 
 	if (isInputSupported && isTextareaSupported) {
 
-		placeholder = prototype.placeholder = function() {
+		placeholder = prototype.placeholder = function () {
 			return this;
 		};
 
@@ -21,17 +21,17 @@
 
 	} else {
 
-		placeholder = prototype.placeholder = function() {
+		placeholder = prototype.placeholder = function () {
 			var $this = this;
 			$this
-				.filter((isInputSupported ? 'textarea' : ':input') + '[placeholder]')
-				.not('.placeholder')
-				.bind({
-					'focus.placeholder': clearPlaceholder,
-					'blur.placeholder': setPlaceholder
-				})
-				.data('placeholder-enabled', true)
-				.trigger('blur.placeholder');
+					.filter((isInputSupported ? 'textarea' : ':input') + '[placeholder]')
+					.not('.placeholder')
+					.bind({
+						'focus.placeholder': clearPlaceholder,
+						'blur.placeholder': setPlaceholder
+					})
+					.data('placeholder-enabled', true)
+					.trigger('blur.placeholder');
 			return $this;
 		};
 
@@ -39,7 +39,7 @@
 		placeholder.textarea = isTextareaSupported;
 
 		hooks = {
-			'get': function(element) {
+			'get': function (element) {
 				var $element = $(element);
 
 				var $passwordInput = $element.data('placeholder-password');
@@ -49,7 +49,7 @@
 
 				return $element.data('placeholder-enabled') && $element.hasClass('placeholder') ? '' : element.value;
 			},
-			'set': function(element, value) {
+			'set': function (element, value) {
 				var $element = $(element);
 
 				var $passwordInput = $element.data('placeholder-password');
@@ -86,20 +86,20 @@
 			propHooks.value = hooks;
 		}
 
-		$(function() {
+		$(function () {
 			// Look for forms
-			$(document).delegate('form', 'submit.placeholder', function() {
+			$(document).delegate('form', 'submit.placeholder', function () {
 				// Clear the placeholder values so they don't get submitted
 				var $inputs = $('.placeholder', this).each(clearPlaceholder);
-				setTimeout(function() {
+				setTimeout(function () {
 					$inputs.each(setPlaceholder);
 				}, 10);
 			});
 		});
 
 		// Clear placeholder values upon page reload
-		$(window).bind('beforeunload.placeholder', function() {
-			$('.placeholder').each(function() {
+		$(window).bind('beforeunload.placeholder', function () {
+			$('.placeholder').each(function () {
 				this.value = '';
 			});
 		});
@@ -110,7 +110,7 @@
 		// Return an object of element attributes
 		var newAttrs = {};
 		var rinlinejQuery = /^jQuery\d+$/;
-		$.each(elem.attributes, function(i, attr) {
+		$.each(elem.attributes, function (i, attr) {
 			if (attr.specified && !rinlinejQuery.test(attr.name)) {
 				newAttrs[attr.name] = attr.value;
 			}
@@ -146,23 +146,23 @@
 			if (input.type == 'password') {
 				if (!$input.data('placeholder-textinput')) {
 					try {
-						$replacement = $input.clone().attr({ 'type': 'text' });
-					} catch(e) {
-						$replacement = $('<input>').attr($.extend(args(this), { 'type': 'text' }));
+						$replacement = $input.clone().attr({'type': 'text'});
+					} catch (e) {
+						$replacement = $('<input>').attr($.extend(args(this), {'type': 'text'}));
 					}
 					$replacement
-						.removeAttr('name')
-						.data({
-							'placeholder-password': $input,
-							'placeholder-id': id
-						})
-						.bind('focus.placeholder', clearPlaceholder);
+							.removeAttr('name')
+							.data({
+								'placeholder-password': $input,
+								'placeholder-id': id
+							})
+							.bind('focus.placeholder', clearPlaceholder);
 					$input
-						.data({
-							'placeholder-textinput': $replacement,
-							'placeholder-id': id
-						})
-						.before($replacement);
+							.data({
+								'placeholder-textinput': $replacement,
+								'placeholder-id': id
+							})
+							.before($replacement);
 				}
 				$input = $input.removeAttr('id').hide().prev().attr('id', id).show();
 				// Note: `$input[0] != input` now!
@@ -179,7 +179,8 @@
 		// https://github.com/mathiasbynens/jquery-placeholder/pull/99
 		try {
 			return document.activeElement;
-		} catch (err) {}
+		} catch (err) {
+		}
 	}
 
 }(this, document, jQuery));

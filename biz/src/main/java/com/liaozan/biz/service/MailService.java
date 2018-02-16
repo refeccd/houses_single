@@ -49,7 +49,7 @@ public class MailService {
 	 * send email
 	 *
 	 * @param title title for mail
-	 * @param url content
+	 * @param url   content
 	 * @param email to
 	 */
 	public void sendMail(String title, String url, String email) {

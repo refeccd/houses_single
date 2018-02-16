@@ -332,11 +332,10 @@ public class House {
 
 	@Override
 	public String toString() {
-		return "House [id=" + id + ", type=" + type + ", price=" + price + ", name=" + name + ", images=" + images + ", area=" + area + ", beds=" + beds + ", baths=" + baths + ", rating=" + rating
-				+ ", roundRating=" + roundRating + ", remarks=" + remarks + ", properties=" + properties + ", floorPlan=" + floorPlan + ", tags=" + tags + ", createTime=" + createTime + ", cityId="
-				+ cityId + ", communityId=" + communityId + ", address=" + address + ", firstImg=" + firstImg + ", floorPlanList=" + floorPlanList + ", featureList=" + featureList + ", houseFiles="
-				+ houseFiles + ", floorPlanFiles=" + floorPlanFiles + ", priceStr=" + priceStr + ", typeStr=" + typeStr + ", userId=" + userId + ", bookmarked=" + bookmarked + ", state=" + state
-				+ ", ids=" + ids + ", sort=" + sort + "]";
+		return "House [id=" + id + ", type=" + type + ", price=" + price + ", name=" + name + ", images=" + images + ", area=" + area + ", beds=" + beds + ", baths=" + baths + ", rating=" + rating + ", roundRating=" + roundRating
+				+ ", remarks=" + remarks + ", properties=" + properties + ", floorPlan=" + floorPlan + ", tags=" + tags + ", createTime=" + createTime + ", cityId=" + cityId + ", communityId=" + communityId + ", address="
+				+ address + ", firstImg=" + firstImg + ", floorPlanList=" + floorPlanList + ", featureList=" + featureList + ", houseFiles=" + houseFiles + ", floorPlanFiles=" + floorPlanFiles + ", priceStr=" + priceStr
+				+ ", typeStr=" + typeStr + ", userId=" + userId + ", bookmarked=" + bookmarked + ", state=" + state + ", ids=" + ids + ", sort=" + sort + "]";
 	}
 
 }

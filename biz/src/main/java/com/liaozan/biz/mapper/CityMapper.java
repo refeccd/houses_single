@@ -16,7 +16,7 @@ import java.util.List;
 public interface CityMapper {
 	/**
 	 * 获取所有城市
-	 * 
+	 *
 	 * @return list
 	 */
 	List<City> getAllCitys();
