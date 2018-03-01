@@ -10,7 +10,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,7 +31,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping("register")
+	@GetMapping("register")
 	public String accountRegister(User account, ModelMap modelMap) {
 		if (account == null || account.getName() == null) {
 			return "/user/accounts/register";
@@ -42,7 +44,7 @@ public class UserController {
 		return "redirect:/user/accounts/register?" + resultMsg.asUrlParams();
 	}
 
-	@RequestMapping("verify")
+	@GetMapping("verify")
 	public String verify(String key) {
 		boolean result = userService.enable(key);
 		if (result) {
@@ -52,7 +54,7 @@ public class UserController {
 		}
 	}
 
-	@RequestMapping("signin")
+	@RequestMapping(value = "signin", method = { RequestMethod.GET, RequestMethod.POST })
 	public String signin(HttpServletRequest request) {
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -71,13 +73,13 @@ public class UserController {
 		}
 	}
 
-	@RequestMapping("logout")
+	@GetMapping("logout")
 	public String logout(HttpServletRequest request) {
 		request.getSession().invalidate();
 		return "redirect:/index";
 	}
 
-	@RequestMapping("profile")
+	@GetMapping("profile")
 	public String profile(HttpServletRequest request, User updateUser) {
 		if (updateUser.getEmail() == null) {
 			return "/user/accounts/profile";
@@ -90,7 +92,7 @@ public class UserController {
 		return "redirect:/accounts/profile?" + ResultMsg.successMsg("更新成功").asUrlParams();
 	}
 
-	@RequestMapping("changePassword")
+	@GetMapping("changePassword")
 	public String changePassword(User user) {
 		if (!Objects.equals(user.getNewPassword(), user.getConfirmPasswd())) {
 			return "redirect:/accounts/profile?" + ResultMsg.errorMsg("两次密码输入不一致").asUrlParams();

@@ -5,6 +5,7 @@ import com.liaozan.common.model.House;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -19,12 +20,12 @@ public class HomePageController {
 	@Autowired
 	private RecommandService recommendService;
 
-	@RequestMapping("index")
+	@GetMapping("index")
 	public String accountsRegister(ModelMap modelMap) {
 		return "redirect:/";
 	}
 
-	@RequestMapping("")
+	@GetMapping("")
 	public String index(ModelMap modelMap) {
 		List<House> houses = recommendService.getLastest();
 		modelMap.put("recomHouses", houses);

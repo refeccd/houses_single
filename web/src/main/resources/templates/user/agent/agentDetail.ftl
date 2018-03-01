@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="en-US">
+ <#import '../../common/common.ftl' as common>
+
  <@common.header/>
 
 <body class="page-sub-page page-agent-detail" id="page-top">
@@ -191,7 +193,7 @@
 							<header><h3>热门房产</h3></header>
                             <#list recomHouses as house>
                             <div class="property small">
-	                            <a href="/house/detail?id=${house.id}">
+	                            <a href="/house/detail/${house.id}">
 		                            <div class="property-image">
 			                            <img alt="" src="${(house.firstImg)!}">
 		                            </div>

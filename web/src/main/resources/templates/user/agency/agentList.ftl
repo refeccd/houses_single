@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
+ <#import '../../common/common.ftl' as common>
+
  <@common.header/>
 
 <body class="page-sub-page page-agents-listing" id="page-top">

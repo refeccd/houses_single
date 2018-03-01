@@ -17,9 +17,7 @@ import com.liaozan.web.utils.UserContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,7 +38,7 @@ public class HouseController {
 	@Autowired
 	private CityService cityService;
 
-	@RequestMapping("list")
+	@RequestMapping(value = "list",method = {RequestMethod.GET,RequestMethod.POST})
 	public String houseList(Integer pageSize, Integer pageNum, House query, ModelMap modelMap) {
 		PageData<House> housePageData = houseService.queryHouse(query, PageParams.build(pageSize, pageNum));
 		List<House> recommandHouses = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
@@ -50,7 +48,7 @@ public class HouseController {
 		return "/house/listing";
 	}
 
-	@RequestMapping("detail/{id}")
+	@GetMapping("detail/{id}")
 	public String houseDetail(@PathVariable Long id, ModelMap modelMap) {
 		House house = houseService.queryOneHouse(id);
 		HouseUser houseUser = houseService.getHouseUser(id);
@@ -64,20 +62,20 @@ public class HouseController {
 		return "/house/detail";
 	}
 
-	@RequestMapping("leaveMsg")
+	@GetMapping("leaveMsg")
 	public String houseMsg(UserMsg userMsg) {
 		houseService.addHouseMsg(userMsg);
 		return "redirect:/house/detail/" + userMsg.getHouseId();
 	}
 
-	@RequestMapping("toAdd")
+	@GetMapping("toAdd")
 	public String toAdd(ModelMap modelMap) {
 		modelMap.put("citys", cityService.getAllCitys());
 		modelMap.put("communitys", houseService.getAllCommunitys());
 		return "/house/add";
 	}
 
-	@RequestMapping("add")
+	@GetMapping("add")
 	public String add(House house) {
 		User user = UserContext.getUser();
 		house.setState(CommonConstants.HOUSE_STATE_UP);
@@ -85,7 +83,7 @@ public class HouseController {
 		return "redirect:/house/ownlist";
 	}
 
-	@RequestMapping("ownlist")
+	@GetMapping("ownlist")
 	public String ownList(House house, Integer pageNum, Integer pageSize, ModelMap modelMap) {
 		User user = UserContext.getUser();
 		house.setUserId(user.getId());
@@ -95,14 +93,14 @@ public class HouseController {
 		return "/house/ownlist";
 	}
 
-	@RequestMapping("rating")
+	@GetMapping("rating")
 	@ResponseBody
 	public ResultMsg houseRate(Double rating, Long id) {
 		houseService.updateRating(id, rating);
 		return ResultMsg.successMsg("ok");
 	}
 
-	@RequestMapping("bookmark")
+	@PostMapping("bookmark")
 	@ResponseBody
 	public ResultMsg bookmark(Long id) {
 		User user = UserContext.getUser();
@@ -110,7 +108,7 @@ public class HouseController {
 		return ResultMsg.successMsg("ok");
 	}
 
-	@RequestMapping("unbookmark")
+	@PostMapping("unbookmark")
 	@ResponseBody
 	public ResultMsg unbookmark(Long id) {
 		User user = UserContext.getUser();
@@ -118,7 +116,7 @@ public class HouseController {
 		return ResultMsg.successMsg("ok");
 	}
 
-	@RequestMapping("del/{id}")
+	@GetMapping("del/{id}")
 	public String delsale(@PathVariable Long id, String houseType) {
 		User user = UserContext.getUser();
 		HouseUserType houseUserType = "own".equals(houseType) ? HouseUserType.SALE : HouseUserType.BOOKMARK;
@@ -126,7 +124,7 @@ public class HouseController {
 		return "redirect:/house/ownlist";
 	}
 
-	@RequestMapping("bookmarked")
+	@GetMapping("bookmarked")
 	public String bookmarkList(House house, Integer pageNum, Integer pageSize, ModelMap modelMap) {
 		User user = UserContext.getUser();
 		house.setBookmarked(true);

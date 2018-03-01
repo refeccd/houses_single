@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="en-US">
+<#import '../common/common.ftl' as common>
+
 <@common.header/>
 
 <body class="page-sub-page page-blog-listing" id="page-top">

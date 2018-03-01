@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="en-US">
+<#import '../common/common.ftl' as common>
+
 <@common.header/>
 
 <body class="page-homepage navigation-fixed-top page-slider page-slider-search-box" id="page-top" data-spy="scroll" data-target=".navigation" data-offset="90">

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
+<#import '../../common/common.ftl' as common>
+
 <@common.header/>
 
 <body class="page-sub-page page-create-account page-account" id="page-top">

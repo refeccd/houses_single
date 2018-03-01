@@ -11,6 +11,7 @@ import com.liaozan.common.page.PageParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,7 +33,7 @@ public class AgencyController {
 	@Autowired
 	private RecommandService recommandService;
 
-	@RequestMapping("agentList")
+	@GetMapping("agentList")
 	public String agencyList(Integer pageSize, Integer pageNum, ModelMap modelMap) {
 		PageData<User> pageData = agencyService.getAllAgent(PageParams.build(pageSize, pageNum));
 		List<House> hotHouse = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
@@ -41,7 +42,7 @@ public class AgencyController {
 		return "/user/agent/agentList";
 	}
 
-	@RequestMapping("agentDetail/{id}")
+	@GetMapping("agentDetail/{id}")
 	public String agentDetail(@PathVariable Long id, ModelMap modelMap) {
 		User agentDetail = agencyService.getAgentDetail(id);
 		House query = new House();

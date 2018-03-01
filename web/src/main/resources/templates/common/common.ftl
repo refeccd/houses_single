@@ -57,7 +57,7 @@
 							   <ul class="list-unstyled list-links">
 								   <li><a href="/index">搜索房产</a></li>
 								   <li><a href="/accounts/register">登录/注册</a></li>
-								   <li><a href="/blog/list">博客</a></li>
+								   <li><a href="/blog/list">博</a></li>
 							   </ul>
 						   </article>
 					   </div>
