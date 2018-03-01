@@ -43,7 +43,7 @@ server:
 mybatis:
   type-aliases-package: com.liaozan.common.model
   mapper-locations: mybatis/mapper/*.xml
-customerApplication:
+customerapplication:
   config:
     domain: 127.0.0.1:8091
     savapath: F:\imgs

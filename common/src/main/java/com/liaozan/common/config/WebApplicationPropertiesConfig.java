@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2018/1/15
  */
 @Configuration
-@ConfigurationProperties(prefix = "customerApplication.config", ignoreUnknownFields = false)
+@ConfigurationProperties(prefix = "customerapplication.config", ignoreUnknownFields = false)
 public class WebApplicationPropertiesConfig {
 
 	private String savapath;

@@ -5,7 +5,7 @@ import com.liaozan.web.interceptor.AuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * @author liaozan
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @since 2018/1/14
  */
 @Configuration
-public class WebMvcConfig extends WebMvcConfigurerAdapter {
+public class WebMvcConfig implements WebMvcConfigurer {
 	@Autowired
 	private AuthInterceptor authInterceptor;
 	@Autowired
@@ -25,7 +25,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		registry.addInterceptor(authActionInterceptor).addPathPatterns("/house/toAdd").addPathPatterns("/accounts/profile").addPathPatterns("/accounts/profileSubmit").addPathPatterns("/house/bookmarked")
 				.addPathPatterns("/house/del").addPathPatterns("/house/ownlist").addPathPatterns("/house/add").addPathPatterns("/house/toAdd").addPathPatterns("/agency/agentMsg").addPathPatterns("/comment/leaveComment")
 				.addPathPatterns("/comment/leaveBlogComment");
-		super.addInterceptors(registry);
 	}
 
 }
