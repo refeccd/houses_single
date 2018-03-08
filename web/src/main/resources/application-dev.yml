@@ -46,5 +46,5 @@ mybatis:
 customerapplication:
   config:
     domain: 127.0.0.1:8091
-    savapath: F:\imgs
+    savapath: F:\docs\imgs
     nginxserverprefix: http://127.0.0.1:8081/images
