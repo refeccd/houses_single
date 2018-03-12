@@ -31,8 +31,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("register")
-	public String accountRegister(User account, ModelMap modelMap) {
+	@RequestMapping(value = "register", method = { RequestMethod.GET, RequestMethod.POST })
+	public String accountRegister (User account, ModelMap modelMap) {
 		if (account == null || account.getName() == null) {
 			return "/user/accounts/register";
 		}
@@ -45,7 +45,7 @@ public class UserController {
 	}
 
 	@GetMapping("verify")
-	public String verify(String key) {
+	public String verify (String key) {
 		boolean result = userService.enable(key);
 		if (result) {
 			return "redirect:/index?" + ResultMsg.successMsg("激活成功").asUrlParams();
@@ -55,7 +55,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "signin", method = { RequestMethod.GET, RequestMethod.POST })
-	public String signin(HttpServletRequest request) {
+	public String signin (HttpServletRequest request) {
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 		String target = request.getParameter("target");
@@ -74,13 +74,13 @@ public class UserController {
 	}
 
 	@GetMapping("logout")
-	public String logout(HttpServletRequest request) {
+	public String logout (HttpServletRequest request) {
 		request.getSession().invalidate();
 		return "redirect:/index";
 	}
 
 	@GetMapping("profile")
-	public String profile(HttpServletRequest request, User updateUser) {
+	public String profile (HttpServletRequest request, User updateUser) {
 		if (updateUser.getEmail() == null) {
 			return "/user/accounts/profile";
 		}
@@ -93,7 +93,7 @@ public class UserController {
 	}
 
 	@GetMapping("changePassword")
-	public String changePassword(User user) {
+	public String changePassword (User user) {
 		if (!Objects.equals(user.getNewPassword(), user.getConfirmPasswd())) {
 			return "redirect:/accounts/profile?" + ResultMsg.errorMsg("两次密码输入不一致").asUrlParams();
 		}

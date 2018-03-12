@@ -17,6 +17,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -40,8 +42,14 @@ public class MailService {
 
 	private final Cache<String, String> registerCache = CacheBuilder.newBuilder().maximumSize(100).expireAfterAccess(15, TimeUnit.MINUTES).removalListener(new RemovalListener<String, String>() {
 		@Override
-		public void onRemoval(RemovalNotification<String, String> notification) {
-			userMapper.delete(notification.getValue());
+		public void onRemoval (RemovalNotification<String, String> notification) {
+			String email = notification.getValue();
+			User user = new User();
+			user.setEmail(email);
+			List<User> users = userMapper.selectUsersByQuery(user);
+			if (!users.isEmpty() && Objects.equals(users.get(0).getEnable(), 0)) {
+				userMapper.delete(email);
+			}
 		}
 	}).build();
 
@@ -52,7 +60,7 @@ public class MailService {
 	 * @param url   content
 	 * @param email to
 	 */
-	public void sendMail(String title, String url, String email) {
+	public void sendMail (String title, String url, String email) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom(from);
 		message.setTo(email);
@@ -62,14 +70,14 @@ public class MailService {
 	}
 
 	@Async
-	public void registerNotify(String email) {
+	public void registerNotify (String email) {
 		String randomKey = RandomStringUtils.randomAlphabetic(10);
 		registerCache.put(randomKey, email);
 		String url = "http://" + webApplicationPropertiesConfig.getDomain() + "/accounts/verify?key=" + randomKey;
 		sendMail("激活邮件", url, email);
 	}
 
-	public boolean enable(String key) {
+	public boolean enable (String key) {
 		String email = registerCache.getIfPresent(key);
 		if (StringUtils.isBlank(email)) {
 			return false;
@@ -78,7 +86,7 @@ public class MailService {
 		updateUser.setEnable(1);
 		updateUser.setEmail(email);
 		userMapper.update(updateUser);
-		registerCache.invalidate(email);
+		registerCache.invalidate(key);
 		return true;
 	}
 }
