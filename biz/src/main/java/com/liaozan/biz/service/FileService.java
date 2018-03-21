@@ -5,7 +5,6 @@ import com.google.common.io.Files;
 import com.liaozan.common.config.WebApplicationPropertiesConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,13 +19,12 @@ import java.util.List;
  * @since 2018/1/14
  */
 @Service
-@EnableConfigurationProperties(WebApplicationPropertiesConfig.class)
 public class FileService {
 
 	@Autowired
 	private WebApplicationPropertiesConfig webApplicationPropertiesConfig;
 
-	public List<String> getImgPath(List<MultipartFile> files) {
+	public List<String> getImgPath (List<MultipartFile> files) {
 		List<String> paths = Lists.newArrayList();
 		files.forEach(file -> {
 			File localFile = null;
@@ -46,7 +44,7 @@ public class FileService {
 		return paths;
 	}
 
-	private File saveToLocal(MultipartFile file, String filePath) throws IOException {
+	private File saveToLocal (MultipartFile file, String filePath) throws IOException {
 		File newFile = new File(filePath + File.separator + Instant.now().getEpochSecond() + File.separator + file.getOriginalFilename());
 		if (!newFile.exists()) {
 			newFile.getParentFile().mkdirs();

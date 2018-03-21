@@ -11,7 +11,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
@@ -27,7 +26,6 @@ import java.util.concurrent.TimeUnit;
  * @since 2018/1/14
  */
 @Service
-@EnableConfigurationProperties(WebApplicationPropertiesConfig.class)
 public class MailService {
 
 	@Autowired

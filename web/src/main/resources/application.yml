@@ -3,7 +3,7 @@ spring:
     active: dev
   mvc:
     favicon:
-      enabled: false
+      enabled: true
   servlet:
     multipart:
       max-file-size: 10MB

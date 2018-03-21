@@ -7,7 +7,6 @@ import com.liaozan.common.model.User;
 import com.liaozan.common.utils.BeanHelper;
 import com.liaozan.common.utils.HashUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +18,6 @@ import java.util.List;
  * @since 2018/1/14
  */
 @Service
-@EnableConfigurationProperties(WebApplicationPropertiesConfig.class)
 public class UserService {
 
 	@Autowired
@@ -32,7 +30,7 @@ public class UserService {
 	private MailService mailServer;
 
 	@Transactional(rollbackFor = Exception.class)
-	public boolean addAccount(User account) {
+	public boolean addAccount (User account) {
 		account.setPasswd(HashUtils.encryPassword(account.getPasswd()));
 		List<String> imgList = fileService.getImgPath(Lists.newArrayList(account.getAvatarFile()));
 		if (!imgList.isEmpty()) {
@@ -45,11 +43,11 @@ public class UserService {
 		return userMapper.insert(account) > 0;
 	}
 
-	public boolean enable(String key) {
+	public boolean enable (String key) {
 		return mailServer.enable(key);
 	}
 
-	public User auth(String userName, String password) {
+	public User auth (String userName, String password) {
 		User user = new User();
 		user.setEmail(userName);
 		user.setPasswd(HashUtils.encryPassword(password));
@@ -61,13 +59,13 @@ public class UserService {
 		return null;
 	}
 
-	public List<User> getUserByQuery(User user) {
+	public List<User> getUserByQuery (User user) {
 		List<User> users = userMapper.selectUsersByQuery(user);
 		users.forEach(u -> u.setAvatar(webApplicationPropertiesConfig.getNginxserverprefix() + u.getAvatar()));
 		return users;
 	}
 
-	public void updateUser(User updateUser) {
+	public void updateUser (User updateUser) {
 		BeanHelper.onUpdate(updateUser);
 		userMapper.update(updateUser);
 	}

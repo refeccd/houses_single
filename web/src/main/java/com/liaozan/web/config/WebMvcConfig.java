@@ -5,6 +5,7 @@ import com.liaozan.web.interceptor.AuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -27,4 +28,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 				.addPathPatterns("/comment/leaveBlogComment");
 	}
 
+	@Override
+	public void configureViewResolvers (ViewResolverRegistry registry) {
+		registry.jsp();
+	}
 }
