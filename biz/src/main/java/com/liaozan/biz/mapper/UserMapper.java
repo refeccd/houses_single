@@ -21,7 +21,7 @@ public interface UserMapper {
 	 * @param account entity
 	 * @return result
 	 */
-	int insert (User account);
+	int insert(User account);
 
 	/**
 	 * delete
@@ -29,7 +29,7 @@ public interface UserMapper {
 	 * @param email email
 	 * @return int result
 	 */
-	int delete (String email);
+	int delete(String email);
 
 	/**
 	 * update user
@@ -37,7 +37,7 @@ public interface UserMapper {
 	 * @param updateUser user
 	 * @return int result
 	 */
-	int update (User updateUser);
+	int update(User updateUser);
 
 	/**
 	 * get user
@@ -45,5 +45,5 @@ public interface UserMapper {
 	 * @param user user
 	 * @return list of user
 	 */
-	List<User> selectUsersByQuery (User user);
+	List<User> selectUsersByQuery(User user);
 }

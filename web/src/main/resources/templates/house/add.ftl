@@ -134,7 +134,8 @@
 									<header><h2>房屋图片</h2></header>
 									<div class="center">
 										<div class="form-group">
-											<input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Browse Images" name="houseFiles">
+											<input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default"
+											       data-browse-label="Browse Images" name="houseFiles">
 											<figure class="note"><strong>Hint:</strong> You can upload all images at once!</figure>
 										</div>
 									</div>
@@ -144,7 +145,8 @@
 									<header><h2>户型图片</h2></header>
 									<div class="center">
 										<div class="form-group">
-											<input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Browse Images" name="floorPlanFiles">
+											<input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default"
+											       data-browse-label="Browse Images" name="floorPlanFiles">
 											<figure class="note"><strong>Hint:</strong> You can upload all images at once!</figure>
 										</div>
 									</div>
@@ -219,7 +221,8 @@
 								<figure class="step-number">2</figure>
 								<div class="description">
 									<h4>Enter Information About Property</h4>
-									<p>Type information about your property. Be descriptive. </p>
+									<p>Type information about your property. Be descriptive.
+									</p>
 								</div>
 							</aside><!-- /.submit-step -->
 						</div><!-- /.col-md-3 -->

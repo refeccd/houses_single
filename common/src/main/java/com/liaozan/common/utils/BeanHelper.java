@@ -18,7 +18,7 @@ public class BeanHelper {
 
 	private static final String CREATE_TIME_KEY = "createTime";
 
-	public static <T> void setDefaultProp (T target, Class<T> clazz) {
+	public static <T> void setDefaultProp(T target, Class<T> clazz) {
 		PropertyDescriptor[] descriptors = PropertyUtils.getPropertyDescriptors(clazz);
 		for (PropertyDescriptor propertyDescriptor : descriptors) {
 			String fieldName = propertyDescriptor.getName();
@@ -44,7 +44,7 @@ public class BeanHelper {
 		}
 	}
 
-	public static <T> void onUpdate (T target) {
+	public static <T> void onUpdate(T target) {
 		try {
 			PropertyUtils.setProperty(target, UPDATE_TIME_KEY, System.currentTimeMillis());
 		} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ignored) {
@@ -52,7 +52,7 @@ public class BeanHelper {
 		}
 	}
 
-	private static <T> void innerDefault (T target, Class<?> clazz, PropertyDescriptor[] descriptors) {
+	private static <T> void innerDefault(T target, Class<?> clazz, PropertyDescriptor[] descriptors) {
 		for (PropertyDescriptor propertyDescriptor : descriptors) {
 			String fieldName = propertyDescriptor.getName();
 			Object value;
@@ -83,7 +83,7 @@ public class BeanHelper {
 		}
 	}
 
-	public static <T> void onInsert (T target) {
+	public static <T> void onInsert(T target) {
 		Class<?> clazz = target.getClass();
 		PropertyDescriptor[] descriptors = PropertyUtils.getPropertyDescriptors(clazz);
 		innerDefault(target, clazz, descriptors);

@@ -14,7 +14,7 @@ public class UserHelper {
 
 	private static final Integer PASSWORD_LENGTH = 6;
 
-	public static ResultMsg validate (User accout) {
+	public static ResultMsg validate(User accout) {
 		if (StringUtils.isBlank(accout.getEmail())) {
 			return ResultMsg.errorMsg("Email有误");
 		}
@@ -27,7 +27,7 @@ public class UserHelper {
 		return ResultMsg.successMsg("");
 	}
 
-	public static ResultMsg validateResetPassword (String key, String password, String confirmPassword) {
+	public static ResultMsg validateResetPassword(String key, String password, String confirmPassword) {
 		if (StringUtils.isBlank(key) || StringUtils.isBlank(password) || StringUtils.isBlank(confirmPassword)) {
 			return ResultMsg.errorMsg("参数有误");
 		}

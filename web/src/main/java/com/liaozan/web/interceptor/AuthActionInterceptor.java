@@ -19,7 +19,7 @@ import java.net.URLEncoder;
 @Component
 public class AuthActionInterceptor extends HandlerInterceptorAdapter {
 	@Override
-	public boolean preHandle (HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		User user = UserContext.getUser();
 		if (user == null) {
 			String message = "请先登录";

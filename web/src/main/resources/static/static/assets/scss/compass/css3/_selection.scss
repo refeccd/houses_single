@@ -44,16 +44,16 @@ $selection-support-threshold: $graceful-usage-threshold !default;
 // specify only the background-color, you should pass an explicit `null` value
 // for `$color` or use mixin content.
 @mixin selection($background-color: null, $color: contrast-color($background-color)) {
-    @include with-each-prefix(css-selection, $selection-support-threshold) {
-        $selector: '';
-        @if $current-prefix != null {
-            $selector: $current-prefix + '-';
-        }
-        $selector: "&::#{$selector}selection";
-        #{$selector} {
-            color: $color;
-            background-color: $background-color;
-            @content;
-        }
+  @include with-each-prefix(css-selection, $selection-support-threshold) {
+    $selector: '';
+    @if $current-prefix != null {
+      $selector: $current-prefix + '-';
     }
+    $selector: "&::#{$selector}selection";
+    #{$selector} {
+      color: $color;
+      background-color: $background-color;
+      @content;
+    }
+  }
 }

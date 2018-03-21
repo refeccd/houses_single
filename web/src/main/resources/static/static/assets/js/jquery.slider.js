@@ -30,7 +30,7 @@
 				typeof value.splice != 'undefined' &&
 				typeof value.propertyIsEnumerable != 'undefined' &&
 				!value.propertyIsEnumerable('splice')
-			)) {
+		)) {
 			return true;
 		}
 
@@ -169,26 +169,26 @@
 		selector: ".jslider-",
 
 		template: tmpl(
-			'<span class="<%=className%>">' +
-			'<table><tr><td>' +
-			'<div class="<%=className%>-bg">' +
-			'<i class="l"></i><i class="f"></i><i class="r"></i>' +
-			'<i class="v"></i>' +
-			'</div>' +
+				'<span class="<%=className%>">' +
+				'<table><tr><td>' +
+				'<div class="<%=className%>-bg">' +
+				'<i class="l"></i><i class="f"></i><i class="r"></i>' +
+				'<i class="v"></i>' +
+				'</div>' +
 
-			'<div class="<%=className%>-pointer"></div>' +
-			'<div class="<%=className%>-pointer <%=className%>-pointer-to"></div>' +
+				'<div class="<%=className%>-pointer"></div>' +
+				'<div class="<%=className%>-pointer <%=className%>-pointer-to"></div>' +
 
-			'<div class="<%=className%>-label"><span><%=settings.from%></span></div>' +
-			'<div class="<%=className%>-label <%=className%>-label-to"><span><%=settings.to%></span><%=settings.dimension%></div>' +
+				'<div class="<%=className%>-label"><span><%=settings.from%></span></div>' +
+				'<div class="<%=className%>-label <%=className%>-label-to"><span><%=settings.to%></span><%=settings.dimension%></div>' +
 
-			'<div class="<%=className%>-value"><span></span><%=settings.dimension%></div>' +
-			'<div class="<%=className%>-value <%=className%>-value-to"><span></span><%=settings.dimension%></div>' +
+				'<div class="<%=className%>-value"><span></span><%=settings.dimension%></div>' +
+				'<div class="<%=className%>-value <%=className%>-value-to"><span></span><%=settings.dimension%></div>' +
 
-			'<div class="<%=className%>-scale"><%=scale%></div>' +
+				'<div class="<%=className%>-scale"><%=scale%></div>' +
 
-			'</td></tr></table>' +
-			'</span>'
+				'</td></tr></table>' +
+				'</span>'
 		)
 
 	};
@@ -396,9 +396,9 @@
 			this.o.value.css({left: this.o.pointers[0].value.prc + "%", width: (this.o.pointers[1].value.prc - this.o.pointers[0].value.prc) + "%"});
 
 		this.o.labels[pointer.uid].value.html(
-			this.nice(
-				pointer.value.origin
-			)
+				this.nice(
+						pointer.value.origin
+				)
 		);
 
 		// redraw position of labels

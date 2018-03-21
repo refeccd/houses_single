@@ -20,59 +20,59 @@ public class Blog {
 
 	private List<String> tagList = Lists.newArrayList();
 
-	public Integer getId () {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId (Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getTags () {
+	public String getTags() {
 		return tags;
 	}
 
-	public void setTags (String tags) {
+	public void setTags(String tags) {
 		this.tags = tags;
 	}
 
-	public String getContent () {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent (String content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 
-	public Date getCreateTime () {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime (Date createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public String getDigest () {
+	public String getDigest() {
 		return digest;
 	}
 
-	public void setDigest (String digest) {
+	public void setDigest(String digest) {
 		this.digest = digest;
 	}
 
-	public List<String> getTagList () {
+	public List<String> getTagList() {
 		return tagList;
 	}
 
-	public void setTagList (List<String> tagList) {
+	public void setTagList(List<String> tagList) {
 		this.tagList = tagList;
 	}
 
-	public String getTitle () {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle (String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 

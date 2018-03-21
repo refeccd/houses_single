@@ -26,13 +26,13 @@ public class RequestLogger {
 	private static final Logger LOGGER = LoggerFactory.getLogger(RequestLogger.class);
 
 	@Pointcut("execution(* *com.liaozan.web.controller.*.*(..))")
-	public void pointCut () {
+	public void pointCut() {
 	}
 
 	@Around("pointCut()")
-	public Object around (ProceedingJoinPoint joinPoint) throws Throwable {
+	public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 		Object result = null;
-		ServletRequestAttributes attributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 		if (attributes != null) {
 			HttpServletRequest request = attributes.getRequest();
 			try {
@@ -53,7 +53,7 @@ public class RequestLogger {
 		return null;
 	}
 
-	private static String processParam (HttpServletRequest request) throws JsonProcessingException {
+	private static String processParam(HttpServletRequest request) throws JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.writeValueAsString(request.getParameterMap());
 	}

@@ -22,7 +22,7 @@ public interface BlogMapper {
 	 * @param params pageParams
 	 * @return result
 	 */
-	List<Blog> selectBlog (@Param("blog") Blog query, @Param("pageParams") PageParams params);
+	List<Blog> selectBlog(@Param("blog") Blog query, @Param("pageParams") PageParams params);
 
 	/**
 	 * selectBlogCount
@@ -30,6 +30,6 @@ public interface BlogMapper {
 	 * @param query param
 	 * @return result
 	 */
-	Long selectBlogCount (Blog query);
+	Long selectBlogCount(Blog query);
 
 }

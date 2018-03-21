@@ -15,6 +15,6 @@ import org.springframework.stereotype.Component;
 public class MyApplicationListener implements ApplicationListener<ApplicationEvent> {
 	@Override
 	public void onApplicationEvent (ApplicationEvent event) {
-		log.error("{}", event);
+		log.debug("{}", event);
 	}
 }

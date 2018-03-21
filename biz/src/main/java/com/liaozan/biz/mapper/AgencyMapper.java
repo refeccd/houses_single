@@ -24,7 +24,7 @@ public interface AgencyMapper {
 	 * @param agency param
 	 * @return result
 	 */
-	List<Agency> select (Agency agency);
+	List<Agency> select(Agency agency);
 
 	/**
 	 * insert
@@ -32,7 +32,7 @@ public interface AgencyMapper {
 	 * @param agency param
 	 * @return result
 	 */
-	int insert (Agency agency);
+	int insert(Agency agency);
 
 	/**
 	 * selectAgent
@@ -41,7 +41,7 @@ public interface AgencyMapper {
 	 * @param pageParams pageParams
 	 * @return result
 	 */
-	List<User> selectAgent (@Param("user") User user, @Param("pageParams") PageParams pageParams);
+	List<User> selectAgent(@Param("user") User user, @Param("pageParams") PageParams pageParams);
 
 	/**
 	 * selectAgentCount
@@ -49,6 +49,6 @@ public interface AgencyMapper {
 	 * @param user user
 	 * @return result
 	 */
-	Long selectAgentCount (@Param("user") User user);
+	Long selectAgentCount(@Param("user") User user);
 
 }

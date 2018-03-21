@@ -24,14 +24,14 @@
 		placeholder = prototype.placeholder = function () {
 			var $this = this;
 			$this
-				.filter((isInputSupported ? 'textarea' : ':input') + '[placeholder]')
-				.not('.placeholder')
-				.bind({
-					'focus.placeholder': clearPlaceholder,
-					'blur.placeholder': setPlaceholder
-				})
-				.data('placeholder-enabled', true)
-				.trigger('blur.placeholder');
+					.filter((isInputSupported ? 'textarea' : ':input') + '[placeholder]')
+					.not('.placeholder')
+					.bind({
+						'focus.placeholder': clearPlaceholder,
+						'blur.placeholder': setPlaceholder
+					})
+					.data('placeholder-enabled', true)
+					.trigger('blur.placeholder');
 			return $this;
 		};
 
@@ -151,18 +151,18 @@
 						$replacement = $('<input>').attr($.extend(args(this), {'type': 'text'}));
 					}
 					$replacement
-						.removeAttr('name')
-						.data({
-							'placeholder-password': $input,
-							'placeholder-id': id
-						})
-						.bind('focus.placeholder', clearPlaceholder);
+							.removeAttr('name')
+							.data({
+								'placeholder-password': $input,
+								'placeholder-id': id
+							})
+							.bind('focus.placeholder', clearPlaceholder);
 					$input
-						.data({
-							'placeholder-textinput': $replacement,
-							'placeholder-id': id
-						})
-						.before($replacement);
+							.data({
+								'placeholder-textinput': $replacement,
+								'placeholder-id': id
+							})
+							.before($replacement);
 				}
 				$input = $input.removeAttr('id').hide().prev().attr('id', id).show();
 				// Note: `$input[0] != input` now!

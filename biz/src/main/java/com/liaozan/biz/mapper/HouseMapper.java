@@ -27,7 +27,7 @@ public interface HouseMapper {
 	 * @param pageParams pageParam
 	 * @return result
 	 */
-	List<House> selectPageHouses (@Param("house") House house, @Param("pageParams") PageParams pageParams);
+	List<House> selectPageHouses(@Param("house") House house, @Param("pageParams") PageParams pageParams);
 
 	/**
 	 * selectPageCount
@@ -35,7 +35,7 @@ public interface HouseMapper {
 	 * @param query query
 	 * @return result
 	 */
-	Long selectPageCount (@Param("house") House query);
+	Long selectPageCount(@Param("house") House query);
 
 	/**
 	 * selectCommunity
@@ -43,7 +43,7 @@ public interface HouseMapper {
 	 * @param community community
 	 * @return result
 	 */
-	List<Community> selectCommunity (Community community);
+	List<Community> selectCommunity(Community community);
 
 	/**
 	 * insert
@@ -51,7 +51,7 @@ public interface HouseMapper {
 	 * @param house house
 	 * @return result
 	 */
-	int insert (House house);
+	int insert(House house);
 
 	/**
 	 * selectHouseUser
@@ -61,7 +61,7 @@ public interface HouseMapper {
 	 * @param integer integer
 	 * @return result
 	 */
-	HouseUser selectHouseUser (@Param("userId") Long userId, @Param("id") Long houseId, @Param("type") Integer integer);
+	HouseUser selectHouseUser(@Param("userId") Long userId, @Param("id") Long houseId, @Param("type") Integer integer);
 
 	/**
 	 * selectSaleHouseUser
@@ -69,7 +69,7 @@ public interface HouseMapper {
 	 * @param houseId houseId
 	 * @return result
 	 */
-	HouseUser selectSaleHouseUser (@Param("id") Long houseId);
+	HouseUser selectSaleHouseUser(@Param("id") Long houseId);
 
 	/**
 	 * insertHouseUser
@@ -77,7 +77,7 @@ public interface HouseMapper {
 	 * @param houseUser houseUser
 	 * @return result
 	 */
-	int insertHouseUser (HouseUser houseUser);
+	int insertHouseUser(HouseUser houseUser);
 
 	/**
 	 * insertUserMsg
@@ -85,7 +85,7 @@ public interface HouseMapper {
 	 * @param userMsg userMsg
 	 * @return result
 	 */
-	int insertUserMsg (UserMsg userMsg);
+	int insertUserMsg(UserMsg userMsg);
 
 	/**
 	 * updateHouse
@@ -93,7 +93,7 @@ public interface HouseMapper {
 	 * @param updateHouse updateHouse
 	 * @return result
 	 */
-	int updateHouse (House updateHouse);
+	int updateHouse(House updateHouse);
 
 	/**
 	 * downHouse
@@ -101,7 +101,7 @@ public interface HouseMapper {
 	 * @param id id
 	 * @return result
 	 */
-	int downHouse (Long id);
+	int downHouse(Long id);
 
 	/**
 	 * deleteHouseUser
@@ -111,6 +111,6 @@ public interface HouseMapper {
 	 * @param type   type
 	 * @return result
 	 */
-	int deleteHouseUser (@Param("id") Long id, @Param("userId") Long userId, @Param("type") Integer type);
+	int deleteHouseUser(@Param("id") Long id, @Param("userId") Long userId, @Param("type") Integer type);
 
 }

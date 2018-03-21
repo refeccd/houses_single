@@ -127,7 +127,7 @@ $(document).ready(function ($) {
 	$('.navigation .nav a[href^="#"], a[href^="#"].roll').on('click', function (e) {
 		e.preventDefault();
 		var target = this.hash,
-			$target = $(target);
+				$target = $(target);
 		if ($(window).width() > 768) {
 			$('html, body').stop().animate({
 				'scrollTop': $target.offset().top - $('.navigation').height()
@@ -211,16 +211,16 @@ $(document).ready(function ($) {
 		if ($(window).width() > 991) {
 
 			$('.masonry').hover(function () {
-					$('.masonry').each(function () {
-						$('.masonry').addClass('masonry-hide-other');
-						$(this).removeClass('masonry-show');
-					});
-					$(this).addClass('masonry-show');
-				}, function () {
-					$('.masonry').each(function () {
-						$('.masonry').removeClass('masonry-hide-other');
-					});
-				}
+						$('.masonry').each(function () {
+							$('.masonry').addClass('masonry-hide-other');
+							$(this).removeClass('masonry-show');
+						});
+						$(this).addClass('masonry-show');
+					}, function () {
+						$('.masonry').each(function () {
+							$('.masonry').removeClass('masonry-hide-other');
+						});
+					}
 			);
 
 			var config = {
@@ -263,13 +263,13 @@ $(document).ready(function ($) {
 
 	if ($('.submit-pricing').length > 0) {
 		$('.btn').click(function () {
-				$('.submit-pricing .buttons td').each(function () {
-					$(this).removeClass('package-selected');
-				});
-				$(this).parent().css('opacity', '1');
-				$(this).parent().addClass('package-selected');
+					$('.submit-pricing .buttons td').each(function () {
+						$(this).removeClass('package-selected');
+					});
+					$(this).parent().css('opacity', '1');
+					$(this).parent().addClass('package-selected');
 
-			}
+				}
 		);
 	}
 
@@ -591,10 +591,10 @@ function showRatingForm() {
 function equalHeight(container) {
 
 	var currentTallest = 0,
-		currentRowStart = 0,
-		rowDivs = new Array(),
-		$el,
-		topPosition = 0;
+			currentRowStart = 0,
+			rowDivs = new Array(),
+			$el,
+			topPosition = 0;
 	$(container).each(function () {
 
 		$el = $(this);
@@ -631,13 +631,7 @@ function drawFooterThumbnails() {
 		// Create thumbnail function
 		function createThumbnail() {
 			for (i = 0; i < rows * thumbnailsPerRow; i++) {
-				$('.footer-thumbnails').append("<div class="
-				property - thumbnail
-				"><a href="
-				" + locations[i][5] + "
-				"><img src=" + locations[i][6] + "></a></div>"
-			)
-				;
+				$('.footer-thumbnails').append("<div class='property-thumbnail'><a href='" + locations[i][5] + "'><img src=" + locations[i][6] + "></a></div>");
 				var $thumbnail = $('.footer-thumbnails .property-thumbnail');
 				$thumbnail.css('width', 100 / thumbnailsPerRow + '%');
 			}

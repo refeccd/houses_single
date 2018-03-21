@@ -14,14 +14,14 @@
 
 			// how many times to update the value, and how much to increment the value on each update
 			var loops = Math.ceil(settings.speed / settings.refreshInterval),
-				increment = (settings.to - settings.from) / loops;
+					increment = (settings.to - settings.from) / loops;
 
 			// references & variables that will change with each update
 			var self = this,
-				$self = $(this),
-				loopCount = 0,
-				value = settings.from,
-				data = $self.data('countTo') || {};
+					$self = $(this),
+					loopCount = 0,
+					value = settings.from,
+					data = $self.data('countTo') || {};
 
 			$self.data('countTo', data);
 

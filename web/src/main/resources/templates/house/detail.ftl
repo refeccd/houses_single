@@ -117,7 +117,8 @@
 											<div class="rating rating-overall" data-score="${house.rating}"></div>
 										</figure>
 									</div>
-									<div class="rating-form"></div><!-- /.rating-form -->
+									<div class="rating-form">
+									</div><!-- /.rating-form -->
 								</section><!-- /#property-rating -->
 
 
@@ -317,9 +318,9 @@
 						cache: false,
 						timeout: 60000
 					})
-						.done(function (ret) {
+									.done(function (ret) {
 
-						})
+									})
 				}
 			});
 		}

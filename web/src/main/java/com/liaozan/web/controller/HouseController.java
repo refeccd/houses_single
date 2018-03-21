@@ -38,8 +38,8 @@ public class HouseController {
 	@Autowired
 	private CityService cityService;
 
-	@RequestMapping(value = "list", method = { RequestMethod.GET, RequestMethod.POST })
-	public String houseList (Integer pageSize, Integer pageNum, House query, ModelMap modelMap) {
+	@RequestMapping(value = "list",method = {RequestMethod.GET,RequestMethod.POST})
+	public String houseList(Integer pageSize, Integer pageNum, House query, ModelMap modelMap) {
 		PageData<House> housePageData = houseService.queryHouse(query, PageParams.build(pageSize, pageNum));
 		List<House> recommandHouses = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
 		modelMap.put("recomHouses", recommandHouses);
@@ -49,7 +49,7 @@ public class HouseController {
 	}
 
 	@GetMapping("detail/{id}")
-	public String houseDetail (@PathVariable Long id, ModelMap modelMap) {
+	public String houseDetail(@PathVariable Long id, ModelMap modelMap) {
 		House house = houseService.queryOneHouse(id);
 		HouseUser houseUser = houseService.getHouseUser(id);
 		recommandService.increase(id);
@@ -63,20 +63,20 @@ public class HouseController {
 	}
 
 	@GetMapping("leaveMsg")
-	public String houseMsg (UserMsg userMsg) {
+	public String houseMsg(UserMsg userMsg) {
 		houseService.addHouseMsg(userMsg);
 		return "redirect:/house/detail/" + userMsg.getHouseId();
 	}
 
 	@GetMapping("toAdd")
-	public String toAdd (ModelMap modelMap) {
+	public String toAdd(ModelMap modelMap) {
 		modelMap.put("citys", cityService.getAllCitys());
 		modelMap.put("communitys", houseService.getAllCommunitys());
 		return "/house/add";
 	}
 
 	@GetMapping("add")
-	public String add (House house) {
+	public String add(House house) {
 		User user = UserContext.getUser();
 		house.setState(CommonConstants.HOUSE_STATE_UP);
 		houseService.addHouse(house, user);
@@ -84,7 +84,7 @@ public class HouseController {
 	}
 
 	@GetMapping("ownlist")
-	public String ownList (House house, Integer pageNum, Integer pageSize, ModelMap modelMap) {
+	public String ownList(House house, Integer pageNum, Integer pageSize, ModelMap modelMap) {
 		User user = UserContext.getUser();
 		house.setUserId(user.getId());
 		house.setBookmarked(false);
@@ -95,14 +95,14 @@ public class HouseController {
 
 	@GetMapping("rating")
 	@ResponseBody
-	public ResultMsg houseRate (Double rating, Long id) {
+	public ResultMsg houseRate(Double rating, Long id) {
 		houseService.updateRating(id, rating);
 		return ResultMsg.successMsg("ok");
 	}
 
 	@PostMapping("bookmark")
 	@ResponseBody
-	public ResultMsg bookmark (Long id) {
+	public ResultMsg bookmark(Long id) {
 		User user = UserContext.getUser();
 		houseService.bindUser2House(id, user.getId(), true);
 		return ResultMsg.successMsg("ok");
@@ -110,14 +110,14 @@ public class HouseController {
 
 	@PostMapping("unbookmark")
 	@ResponseBody
-	public ResultMsg unbookmark (Long id) {
+	public ResultMsg unbookmark(Long id) {
 		User user = UserContext.getUser();
 		houseService.unbindUser2House(id, user.getId(), HouseUserType.BOOKMARK);
 		return ResultMsg.successMsg("ok");
 	}
 
 	@GetMapping("del/{id}")
-	public String delsale (@PathVariable Long id, String houseType) {
+	public String delsale(@PathVariable Long id, String houseType) {
 		User user = UserContext.getUser();
 		HouseUserType houseUserType = "own".equals(houseType) ? HouseUserType.SALE : HouseUserType.BOOKMARK;
 		houseService.unbindUser2House(id, user.getId(), houseUserType);
@@ -125,7 +125,7 @@ public class HouseController {
 	}
 
 	@GetMapping("bookmarked")
-	public String bookmarkList (House house, Integer pageNum, Integer pageSize, ModelMap modelMap) {
+	public String bookmarkList(House house, Integer pageNum, Integer pageSize, ModelMap modelMap) {
 		User user = UserContext.getUser();
 		house.setBookmarked(true);
 		house.setUserId(user.getId());

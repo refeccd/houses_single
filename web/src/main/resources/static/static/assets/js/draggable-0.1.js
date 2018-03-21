@@ -120,18 +120,18 @@
 		});
 
 		this.ptr.find("a")
-			.click(function () {
-				self.is.clicked = true;
+				.click(function () {
+					self.is.clicked = true;
 
-				if (!self.is.toclick) {
-					self.is.toclick = true;
+					if (!self.is.toclick) {
+						self.is.toclick = true;
+						return false;
+					}
+				})
+				.mousedown(function (event) {
+					self._mousedown(event);
 					return false;
-				}
-			})
-			.mousedown(function (event) {
-				self._mousedown(event);
-				return false;
-			});
+				});
 
 		this.events();
 	};

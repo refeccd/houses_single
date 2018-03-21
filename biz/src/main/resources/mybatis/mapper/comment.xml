@@ -32,12 +32,12 @@
 
     <insert id="insert">
         insert into comment (
-        content,
-        house_id,
-        create_time,
-        blog_id,
-        type,
-        user_id)
+            content,
+            house_id,
+            create_time,
+            blog_id,
+            type,
+            user_id)
         value (
         #{content},
         #{houseId},

@@ -14,43 +14,43 @@ public class HouseUser {
 	private Date createTime;
 	private Integer type;
 
-	public Long getId () {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId (Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Long getHouseId () {
+	public Long getHouseId() {
 		return houseId;
 	}
 
-	public void setHouseId (Long houseId) {
+	public void setHouseId(Long houseId) {
 		this.houseId = houseId;
 	}
 
-	public Long getUserId () {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId (Long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
-	public Date getCreateTime () {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime (Date createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public Integer getType () {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType (Integer type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 

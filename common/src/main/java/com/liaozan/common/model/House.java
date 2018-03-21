@@ -63,19 +63,19 @@ public class House {
 	 */
 	private String sort = "time_desc";
 
-	public Long getId () {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId (Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Integer getType () {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType (Integer type) {
+	public void setType(Integer type) {
 		this.type = type;
 		if (type.equals(1)) {
 			this.typeStr = "For Sale";
@@ -84,124 +84,124 @@ public class House {
 		}
 	}
 
-	public Integer getPrice () {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice (Integer price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 		this.priceStr = this.price + "万";
 	}
 
-	public Integer getArea () {
+	public Integer getArea() {
 		return area;
 	}
 
-	public void setArea (Integer area) {
+	public void setArea(Integer area) {
 		this.area = area;
 	}
 
-	public Integer getBaths () {
+	public Integer getBaths() {
 		return baths;
 	}
 
-	public void setBaths (Integer baths) {
+	public void setBaths(Integer baths) {
 		this.baths = baths;
 	}
 
-	public String getRemarks () {
+	public String getRemarks() {
 		return remarks;
 	}
 
-	public void setRemarks (String remarks) {
+	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
 
-	public String getProperties () {
+	public String getProperties() {
 		return properties;
 	}
 
-	public void setProperties (String properties) {
+	public void setProperties(String properties) {
 		this.properties = properties;
 		this.featureList = Splitter.on(",").splitToList(properties);
 	}
 
-	public String getFloorPlan () {
+	public String getFloorPlan() {
 		return floorPlan;
 	}
 
-	public void setFloorPlan (String floorPlan) {
+	public void setFloorPlan(String floorPlan) {
 		this.floorPlan = floorPlan;
 		if (!Strings.isNullOrEmpty(floorPlan)) {
 			this.floorPlanList = Splitter.on(",").splitToList(floorPlan);
 		}
 	}
 
-	public boolean isBookmarked () {
+	public boolean isBookmarked() {
 		return bookmarked;
 	}
 
-	public void setBookmarked (boolean bookmarked) {
+	public void setBookmarked(boolean bookmarked) {
 		this.bookmarked = bookmarked;
 	}
 
-	public String getTags () {
+	public String getTags() {
 		return tags;
 	}
 
-	public List<Long> getIds () {
+	public List<Long> getIds() {
 		return ids;
 	}
 
-	public void setIds (List<Long> ids) {
+	public void setIds(List<Long> ids) {
 		this.ids = ids;
 	}
 
-	public void setTags (String tags) {
+	public void setTags(String tags) {
 		this.tags = tags;
 	}
 
-	public List<String> getImageList () {
+	public List<String> getImageList() {
 		return imageList;
 	}
 
-	public void setImageList (List<String> imageList) {
+	public void setImageList(List<String> imageList) {
 		this.imageList = imageList;
 	}
 
-	public String getSort () {
+	public String getSort() {
 		return sort;
 	}
 
-	public void setSort (String sort) {
+	public void setSort(String sort) {
 		this.sort = sort;
 	}
 
-	public Integer getState () {
+	public Integer getState() {
 		return state;
 	}
 
-	public String getFirstImg () {
+	public String getFirstImg() {
 		return firstImg;
 	}
 
-	public void setFirstImg (String firstImg) {
+	public void setFirstImg(String firstImg) {
 		this.firstImg = firstImg;
 	}
 
-	public void setState (Integer state) {
+	public void setState(Integer state) {
 		this.state = state;
 	}
 
-	public Date getCreateTime () {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public String getImages () {
+	public String getImages() {
 		return images;
 	}
 
-	public void setImages (String images) {
+	public void setImages(String images) {
 		this.images = images;
 		if (!Strings.isNullOrEmpty(images)) {
 			List<String> list = Splitter.on(",").splitToList(images);
@@ -212,126 +212,126 @@ public class House {
 		}
 	}
 
-	public List<MultipartFile> getFloorPlanFiles () {
+	public List<MultipartFile> getFloorPlanFiles() {
 		return floorPlanFiles;
 	}
 
-	public void setFloorPlanFiles (List<MultipartFile> floorPlanFiles) {
+	public void setFloorPlanFiles(List<MultipartFile> floorPlanFiles) {
 		this.floorPlanFiles = floorPlanFiles;
 	}
 
-	public Long getUserId () {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId (Long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
-	public void setCreateTime (Date createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public Integer getCityId () {
+	public Integer getCityId() {
 		return cityId;
 	}
 
-	public void setCityId (Integer cityId) {
+	public void setCityId(Integer cityId) {
 		this.cityId = cityId;
 	}
 
-	public Integer getCommunityId () {
+	public Integer getCommunityId() {
 		return communityId;
 	}
 
-	public void setCommunityId (Integer communityId) {
+	public void setCommunityId(Integer communityId) {
 		this.communityId = communityId;
 	}
 
-	public String getName () {
+	public String getName() {
 		return name;
 	}
 
-	public void setName (String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getPriceStr () {
+	public String getPriceStr() {
 		return priceStr;
 	}
 
-	public void setPriceStr (String priceStr) {
+	public void setPriceStr(String priceStr) {
 		this.priceStr = priceStr;
 	}
 
-	public String getTypeStr () {
+	public String getTypeStr() {
 		return typeStr;
 	}
 
-	public void setTypeStr (String typeStr) {
+	public void setTypeStr(String typeStr) {
 		this.typeStr = typeStr;
 	}
 
-	public Integer getBeds () {
+	public Integer getBeds() {
 		return beds;
 	}
 
-	public void setBeds (Integer beds) {
+	public void setBeds(Integer beds) {
 		this.beds = beds;
 	}
 
-	public String getAddress () {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress (String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	public List<String> getFloorPlanList () {
+	public List<String> getFloorPlanList() {
 		return floorPlanList;
 	}
 
-	public void setFloorPlanList (List<String> floorPlanList) {
+	public void setFloorPlanList(List<String> floorPlanList) {
 		this.floorPlanList = floorPlanList;
 	}
 
-	public List<String> getFeatureList () {
+	public List<String> getFeatureList() {
 		return featureList;
 	}
 
-	public void setFeatureList (List<String> featureList) {
+	public void setFeatureList(List<String> featureList) {
 		this.featureList = featureList;
 		this.properties = Joiner.on(",").join(featureList);
 	}
 
-	public Double getRating () {
+	public Double getRating() {
 		return rating;
 	}
 
-	public void setRating (Double rating) {
+	public void setRating(Double rating) {
 		this.rating = rating;
-		this.roundRating = (int)Math.round(rating);
+		this.roundRating = (int) Math.round(rating);
 	}
 
-	public Integer getRoundRating () {
+	public Integer getRoundRating() {
 		return roundRating;
 	}
 
-	public void setRoundRating (Integer roundRating) {
+	public void setRoundRating(Integer roundRating) {
 		this.roundRating = roundRating;
 	}
 
-	public List<MultipartFile> getHouseFiles () {
+	public List<MultipartFile> getHouseFiles() {
 		return houseFiles;
 	}
 
-	public void setHouseFiles (List<MultipartFile> houseFiles) {
+	public void setHouseFiles(List<MultipartFile> houseFiles) {
 		this.houseFiles = houseFiles;
 	}
 
 	@Override
-	public String toString () {
+	public String toString() {
 		return "House [id=" + id + ", type=" + type + ", price=" + price + ", name=" + name + ", images=" + images + ", area=" + area + ", beds=" + beds + ", baths=" + baths + ", rating=" + rating + ", roundRating=" + roundRating
 				+ ", remarks=" + remarks + ", properties=" + properties + ", floorPlan=" + floorPlan + ", tags=" + tags + ", createTime=" + createTime + ", cityId=" + cityId + ", communityId=" + communityId + ", address="
 				+ address + ", firstImg=" + firstImg + ", floorPlanList=" + floorPlanList + ", featureList=" + featureList + ", houseFiles=" + houseFiles + ", floorPlanFiles=" + floorPlanFiles + ", priceStr=" + priceStr

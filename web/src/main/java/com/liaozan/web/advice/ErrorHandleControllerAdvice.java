@@ -19,7 +19,7 @@ public class ErrorHandleControllerAdvice {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ErrorHandleControllerAdvice.class);
 
 	@ExceptionHandler(Exception.class)
-	public String handleError (HttpServletRequest request, HttpSession session, Exception e) {
+	public String handleError(HttpServletRequest request, HttpSession session, Exception e) {
 		LOGGER.error(e.getMessage());
 		LOGGER.error(request.getRequestURI());
 		return "error/500";

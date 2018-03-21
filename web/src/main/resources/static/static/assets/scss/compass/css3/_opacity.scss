@@ -10,22 +10,18 @@ $opacity-usage-threshold: $graceful-usage-threshold !default;
 //         A number between 0 and 1, where 0 is transparent and 1 is opaque.
 
 @mixin opacity($opacity) {
-    @include for-legacy-browser("ie", "8", $threshold: $opacity-usage-threshold) {
-        @if $opacity == 1 {
-            filter: unquote("progid:DXImageTransform.Microsoft.Alpha(enabled=false)");
-        } @else {
-            filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
-        }
+  @include for-legacy-browser("ie", "8", $threshold: $opacity-usage-threshold) {
+    @if $opacity == 1 {
+      filter: unquote("progid:DXImageTransform.Microsoft.Alpha(enabled=false)");
+    } @else {
+      filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
     }
-    opacity: $opacity;
+  }
+  opacity: $opacity;
 }
 
 // Make an element completely transparent.
-@mixin transparent {
-    @include opacity(0);
-}
+@mixin transparent { @include opacity(0); }
 
 // Make an element completely opaque.
-@mixin opaque {
-    @include opacity(1);
-}
+@mixin opaque { @include opacity(1); }

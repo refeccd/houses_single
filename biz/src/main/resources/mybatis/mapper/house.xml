@@ -108,22 +108,22 @@
 
     <select id="selectHouseUser" resultType="com.liaozan.common.model.HouseUser">
         SELECT
-        id,
-        house_id,
-        user_id,
-        create_time,
-        type
+            id,
+            house_id,
+            user_id,
+            create_time,
+            type
         FROM house_user
         WHERE house_id = #{id} AND user_id = #{userId} AND type = #{type}
     </select>
 
     <select id="selectSaleHouseUser" resultType="com.liaozan.common.model.HouseUser">
         SELECT
-        id,
-        house_id,
-        user_id,
-        create_time,
-        type
+            id,
+            house_id,
+            user_id,
+            create_time,
+            type
         FROM house_user
         WHERE house_id = #{id} AND type = 1
         LIMIT 1
@@ -144,73 +144,73 @@
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO house (
-        type,
-        name,
-        price,
-        images,
-        area,
-        beds,
-        baths,
-        rating,
-        remarks,
-        properties,
-        floor_plan,
-        tags,
-        create_time,
-        city_id,
-        community_id,
-        address,
-        state
+            type,
+            name,
+            price,
+            images,
+            area,
+            beds,
+            baths,
+            rating,
+            remarks,
+            properties,
+            floor_plan,
+            tags,
+            create_time,
+            city_id,
+            community_id,
+            address,
+            state
         )
         VALUES (
-        #{type},
-        #{name},
-        #{price},
-        #{images},
-        #{area},
-        #{beds},
-        #{baths},
-        #{rating},
-        #{remarks},
-        #{properties},
-        #{floorPlan},
-        #{tags},
-        #{createTime},
-        #{cityId},
-        #{communityId},
-        #{address},
-        #{state}
+            #{type},
+            #{name},
+            #{price},
+            #{images},
+            #{area},
+            #{beds},
+            #{baths},
+            #{rating},
+            #{remarks},
+            #{properties},
+            #{floorPlan},
+            #{tags},
+            #{createTime},
+            #{cityId},
+            #{communityId},
+            #{address},
+            #{state}
         )
     </insert>
 
     <insert id="insertHouseUser" parameterType="com.liaozan.common.model.HouseUser">
         INSERT INTO house_user (
-        house_id,
-        user_id,
-        create_time,
-        type)
+            house_id,
+            user_id,
+            create_time,
+            type)
         VALUES (
-        #{houseId},
-        #{userId},
-        #{createTime},
-        #{type}
+            #{houseId},
+            #{userId},
+            #{createTime},
+            #{type}
         )
     </insert>
 
     <insert id="insertUserMsg" parameterType="com.liaozan.common.model.UserMsg">
         INSERT INTO house_msg (
-        msg,
-        create_time,
-        user_name,
-        house_id,
-        agent_id
+            msg,
+            create_time,
+            user_name,
+            house_id,
+            agent_id
         )
         VALUES (
-        #{msg},
-        #{createTime},
-        #{userName},
-        #{houseId},
-        #{agentId}
+            #{msg},
+            #{createTime},
+            #{userName},
+            #{houseId},
+            #{agentId}
         )
     </insert>
 

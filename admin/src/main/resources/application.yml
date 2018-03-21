@@ -1,0 +1,9 @@
+server:
+  port: 8070
+spring:
+  boot:
+    admin:
+      url: http://127.0.0.1:8070
+management:
+  security:
+    enabled: false

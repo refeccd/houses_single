@@ -131,7 +131,7 @@ function ssc_keydown(e) {
 		return true
 	}
 	var r, i = 0,
-		s = 0;
+			s = 0;
 	var o = ssc_overflowingAncestor(ssc_activeElement);
 	var u = o.clientHeight;
 	if (o == document.body) {
