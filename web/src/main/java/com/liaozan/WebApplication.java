@@ -16,11 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class WebApplication {
 
 	public static void main (String[] args) {
-		try {
-			SpringApplication.run(WebApplication.class, args);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		SpringApplication.run(WebApplication.class, args);
 	}
 
 }

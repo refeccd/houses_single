@@ -17,11 +17,11 @@ import org.springframework.stereotype.Component;
 public class MyBeanDefinitionRegisterPostProcessor implements BeanDefinitionRegistryPostProcessor {
 	@Override
 	public void postProcessBeanDefinitionRegistry (BeanDefinitionRegistry registry) throws BeansException {
-		log.error("BeanDefinitionRegistryPostProcessor...postProcessBeanDefinitionRegistry");
+		log.debug("BeanDefinitionRegistryPostProcessor...postProcessBeanDefinitionRegistry");
 	}
 
 	@Override
 	public void postProcessBeanFactory (ConfigurableListableBeanFactory beanFactory) throws BeansException {
-		log.error("BeanDefinitionRegistryPostProcessor...postProcessBeanFactory");
+		log.debug("BeanDefinitionRegistryPostProcessor...postProcessBeanFactory");
 	}
 }

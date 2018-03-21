@@ -18,27 +18,37 @@ public class WebApplicationPropertiesConfig {
 
 	private String nginxserverprefix;
 
-	public String getSavapath() {
+	private String redisServerUrl;
+
+	public String getRedisServerUrl () {
+		return redisServerUrl;
+	}
+
+	public void setRedisServerUrl (String redisServerUrl) {
+		this.redisServerUrl = redisServerUrl;
+	}
+
+	public String getSavapath () {
 		return savapath;
 	}
 
-	public void setSavapath(String savapath) {
+	public void setSavapath (String savapath) {
 		this.savapath = savapath;
 	}
 
-	public String getDomain() {
+	public String getDomain () {
 		return domain;
 	}
 
-	public void setDomain(String domain) {
+	public void setDomain (String domain) {
 		this.domain = domain;
 	}
 
-	public String getNginxserverprefix() {
+	public String getNginxserverprefix () {
 		return nginxserverprefix;
 	}
 
-	public void setNginxserverprefix(String nginxserverprefix) {
+	public void setNginxserverprefix (String nginxserverprefix) {
 		this.nginxserverprefix = nginxserverprefix;
 	}
 }

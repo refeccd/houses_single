@@ -21,9 +21,6 @@ spring:
       datetime_format: yyyy-MM-dd HH:mm:ss
       default_encoding: UTF-8
       auto_import: common/common.ftl as common
-  boot:
-    admin:
-      url: http://localhost:8070
   mail:
     host: smtp.qq.com
     username: 378024053@qq.com
@@ -43,8 +40,3 @@ server:
 mybatis:
   type-aliases-package: com.liaozan.common.model
   mapper-locations: mybatis/mapper/*.xml
-customerapplication:
-  config:
-    domain: 127.0.0.1:8091
-    savapath: F:\docs\imgs
-    nginxserverprefix: http://127.0.0.1:8081/images

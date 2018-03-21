@@ -1,19 +1,24 @@
 {
-  "properties": [
-    {
-      "name": "customerapplication.config.domain",
-      "type": "java.lang.String",
-      "description": "applicationUrl."
-    },
-    {
-      "name": "customerapplication.config.savaPath",
-      "type": "java.lang.String",
-      "description": "the path for uploadfile."
-    },
-    {
-      "name": "customerapplication.config.nginxServerPrefix",
-      "type": "java.lang.String",
-      "description": "nginx server url."
-    }
-  ]
+    "properties": [
+        {
+            "name": "customerapplication.config.domain",
+            "type": "java.lang.String",
+            "description": "applicationUrl."
+        },
+        {
+            "name": "customerapplication.config.savaPath",
+            "type": "java.lang.String",
+            "description": "the path for uploadfile."
+        },
+        {
+            "name": "customerapplication.config.redisServerUrl",
+            "type": "java.lang.String",
+            "description": "redis server url."
+        },
+        {
+            "name": "customerapplication.config.nginxServerPrefix",
+            "type": "java.lang.String",
+            "description": "nginx server url."
+        }
+    ]
 }
