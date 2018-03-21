@@ -25,26 +25,26 @@
 
     <insert id="insert" parameterType="com.liaozan.common.model.User">
         INSERT INTO user (
-            name,
-            phone,
-            email,
-            aboutme,
-            passwd,
-            avatar,
-            type,
-            create_time,
-            enable
+        name,
+        phone,
+        email,
+        aboutme,
+        passwd,
+        avatar,
+        type,
+        create_time,
+        enable
         )
         VALUES (
-            #{name},
-            #{phone},
-            #{email},
-            #{aboutme},
-            #{passwd},
-            #{avatar},
-            #{type},
-            #{createTime},
-            #{enable}
+        #{name},
+        #{phone},
+        #{email},
+        #{aboutme},
+        #{passwd},
+        #{avatar},
+        #{type},
+        #{createTime},
+        #{enable}
         )
 
 

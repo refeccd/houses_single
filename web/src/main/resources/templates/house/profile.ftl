@@ -308,8 +308,7 @@
 								<h3>About Us</h3>
 								<p>Vel fermentum ipsum. Suspendisse quis molestie odio. Interdum et malesuada fames ac ante ipsum
 									primis in faucibus. Quisque aliquet a metus in aliquet. Praesent ut turpis posuere, commodo odio
-									id, ornare tortor
-								</p>
+									id, ornare tortor </p>
 								<hr>
 								<a href="#" class="link-arrow">Read More</a>
 							</article>

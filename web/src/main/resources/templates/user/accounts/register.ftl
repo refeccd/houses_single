@@ -77,8 +77,7 @@
 
 						<div class="form-group">
 							<label for="form-create-account-email">用户头像:</label>
-							<input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default"
-							       data-browse-label="Browse Images" name="avatarFile" required>
+							<input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Browse Images" name="avatarFile" required>
 							<figure class="note"><strong>Hint:</strong> You can upload all images at once!</figure>
 						</div>
 

@@ -26,7 +26,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 	private static final String PATTEN_TARGET = "target";
 
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+	public boolean preHandle (HttpServletRequest request, HttpServletResponse response, Object handler) {
 		Map<String, String[]> parameterMap = request.getParameterMap();
 		parameterMap.forEach((k, v) -> {
 			if (k.equals(ResultMsg.ERROR_MSG_KEY) || k.equals(ResultMsg.SUCCESS_MSG_KEY) || k.equals(PATTEN_TARGET)) {
@@ -38,7 +38,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute(CommonConstants.USER_ATTRIBUTE);
+		User user = (User)session.getAttribute(CommonConstants.USER_ATTRIBUTE);
 		if (user != null) {
 			UserContext.setUser(user);
 		}
@@ -46,7 +46,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 	}
 
 	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+	public void afterCompletion (HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
 		UserContext.remove();
 	}
 }

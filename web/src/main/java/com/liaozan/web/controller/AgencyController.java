@@ -34,7 +34,7 @@ public class AgencyController {
 	private RecommandService recommandService;
 
 	@GetMapping("agentList")
-	public String agencyList(Integer pageSize, Integer pageNum, ModelMap modelMap) {
+	public String agencyList (Integer pageSize, Integer pageNum, ModelMap modelMap) {
 		PageData<User> pageData = agencyService.getAllAgent(PageParams.build(pageSize, pageNum));
 		List<House> hotHouse = recommandService.getHotHouse(CommonConstants.RECOM_SIZE);
 		modelMap.put("recomHouses", hotHouse);
@@ -43,7 +43,7 @@ public class AgencyController {
 	}
 
 	@GetMapping("agentDetail/{id}")
-	public String agentDetail(@PathVariable Long id, ModelMap modelMap) {
+	public String agentDetail (@PathVariable Long id, ModelMap modelMap) {
 		User agentDetail = agencyService.getAgentDetail(id);
 		House query = new House();
 		query.setUserId(id);

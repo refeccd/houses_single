@@ -25,21 +25,21 @@ public class RecommandService {
 	@Autowired
 	private HouseService houseService;
 
-	public void increase(Long id) {
+	public void increase (Long id) {
 		Jedis jedis = new Jedis();
 		jedis.zincrby(HOT_HOUSE_KEY, 1.0D, id + "");
 		jedis.zremrangeByRank(HOT_HOUSE_KEY, 10, -1);
 		jedis.close();
 	}
 
-	public List<Long> getHot() {
+	public List<Long> getHot () {
 		Jedis jedis = new Jedis();
 		Set<String> idSet = jedis.zrevrange(HOT_HOUSE_KEY, 0, -1);
 		jedis.close();
 		return idSet.stream().map(Long::parseLong).collect(Collectors.toList());
 	}
 
-	public List<House> getHotHouse(Integer size) {
+	public List<House> getHotHouse (Integer size) {
 		House query = new House();
 		List<Long> list = getHot();
 		list.subList(0, Math.min(list.size(), size));
@@ -52,7 +52,7 @@ public class RecommandService {
 		return houseSort.sortedCopy(houses);
 	}
 
-	public List<House> getLastest() {
+	public List<House> getLastest () {
 		House query = new House();
 		query.setSort("create_time");
 		return houseService.queryAndSetImg(query, PageParams.build(8, 1));

@@ -30,22 +30,22 @@ var Hashtable = (function () {
 	var FUNCTION = "function";
 
 	var arrayRemoveAt = (typeof Array.prototype.splice == FUNCTION) ?
-			function (arr, idx) {
-				arr.splice(idx, 1);
-			} :
+		function (arr, idx) {
+			arr.splice(idx, 1);
+		} :
 
-			function (arr, idx) {
-				var itemsAfterDeleted, i, len;
-				if (idx === arr.length - 1) {
-					arr.length = idx;
-				} else {
-					itemsAfterDeleted = arr.slice(idx + 1);
-					arr.length = idx;
-					for (i = 0, len = itemsAfterDeleted.length; i < len; ++i) {
-						arr[idx + i] = itemsAfterDeleted[i];
-					}
+		function (arr, idx) {
+			var itemsAfterDeleted, i, len;
+			if (idx === arr.length - 1) {
+				arr.length = idx;
+			} else {
+				itemsAfterDeleted = arr.slice(idx + 1);
+				arr.length = idx;
+				for (i = 0, len = itemsAfterDeleted.length; i < len; ++i) {
+					arr[idx + i] = itemsAfterDeleted[i];
 				}
-			};
+			}
+		};
 
 	function hashObject(obj) {
 		var hashCode;
@@ -74,7 +74,7 @@ var Hashtable = (function () {
 
 	function equals_fixedValueNoEquals(fixedValue, variableValue) {
 		return (typeof variableValue.equals == FUNCTION) ?
-				variableValue.equals(fixedValue) : (fixedValue === variableValue);
+			variableValue.equals(fixedValue) : (fixedValue === variableValue);
 	}
 
 	function createKeyValCheck(kvStr) {

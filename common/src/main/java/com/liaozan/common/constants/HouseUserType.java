@@ -13,7 +13,7 @@ public enum HouseUserType {
 
 	public final Integer value;
 
-	HouseUserType(Integer value) {
+	HouseUserType (Integer value) {
 		this.value = value;
 	}
 }

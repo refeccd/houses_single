@@ -18,27 +18,27 @@ public class WebApplicationPropertiesConfig {
 
 	private String nginxserverprefix;
 
-	public String getSavapath() {
+	public String getSavapath () {
 		return savapath;
 	}
 
-	public void setSavapath(String savapath) {
+	public void setSavapath (String savapath) {
 		this.savapath = savapath;
 	}
 
-	public String getDomain() {
+	public String getDomain () {
 		return domain;
 	}
 
-	public void setDomain(String domain) {
+	public void setDomain (String domain) {
 		this.domain = domain;
 	}
 
-	public String getNginxserverprefix() {
+	public String getNginxserverprefix () {
 		return nginxserverprefix;
 	}
 
-	public void setNginxserverprefix(String nginxserverprefix) {
+	public void setNginxserverprefix (String nginxserverprefix) {
 		this.nginxserverprefix = nginxserverprefix;
 	}
 }

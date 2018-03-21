@@ -25,7 +25,7 @@ public interface CommentMapper {
 	 * @param pageParams pageParams
 	 * @return result
 	 */
-	List<House> selectHouse(@Param("house") House query, @Param("pageParams") PageParams pageParams);
+	List<House> selectHouse (@Param("house") House query, @Param("pageParams") PageParams pageParams);
 
 	/**
 	 * selectHouseCount
@@ -33,7 +33,7 @@ public interface CommentMapper {
 	 * @param query query
 	 * @return result
 	 */
-	Long selectHouseCount(@Param("house") House query);
+	Long selectHouseCount (@Param("house") House query);
 
 	/**
 	 * selectCommunity
@@ -41,7 +41,7 @@ public interface CommentMapper {
 	 * @param community param
 	 * @return result
 	 */
-	List<Community> selectCommunity(Community community);
+	List<Community> selectCommunity (Community community);
 
 	/**
 	 * insertUserMsg
@@ -49,7 +49,7 @@ public interface CommentMapper {
 	 * @param userMsg userMsg
 	 * @return result
 	 */
-	int insertUserMsg(UserMsg userMsg);
+	int insertUserMsg (UserMsg userMsg);
 
 	/**
 	 * updateHouse
@@ -57,7 +57,7 @@ public interface CommentMapper {
 	 * @param house house
 	 * @return result
 	 */
-	int updateHouse(House house);
+	int updateHouse (House house);
 
 	/**
 	 * insert
@@ -65,7 +65,7 @@ public interface CommentMapper {
 	 * @param comment comment
 	 * @return result
 	 */
-	int insert(Comment comment);
+	int insert (Comment comment);
 
 	/**
 	 * selectComments
@@ -74,7 +74,7 @@ public interface CommentMapper {
 	 * @param size    size
 	 * @return result
 	 */
-	List<Comment> selectComments(@Param("houseId") long houseId, @Param("size") int size);
+	List<Comment> selectComments (@Param("houseId") long houseId, @Param("size") int size);
 
 	/**
 	 * selectBlogComments
@@ -83,7 +83,7 @@ public interface CommentMapper {
 	 * @param size   size
 	 * @return result
 	 */
-	List<Comment> selectBlogComments(@Param("blogId") long blogId, @Param("size") int size);
+	List<Comment> selectBlogComments (@Param("blogId") long blogId, @Param("size") int size);
 
 }
 

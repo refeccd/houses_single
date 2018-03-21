@@ -19,5 +19,5 @@ public interface CityMapper {
 	 *
 	 * @return list
 	 */
-	List<City> getAllCitys();
+	List<City> getAllCitys ();
 }

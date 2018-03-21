@@ -29,22 +29,22 @@
 
     <insert id="insert">
         INSERT INTO agency (
-            name,
-            address,
-            phone,
-            email,
-            about_us,
-            mobile,
-            web_site
+        name,
+        address,
+        phone,
+        email,
+        about_us,
+        mobile,
+        web_site
         )
         VALUES (
-            #{name},
-            #{address},
-            #{phone},
-            #{email},
-            #{aboutUs},
-            #{mobile},
-            #{webSite}
+        #{name},
+        #{address},
+        #{phone},
+        #{email},
+        #{aboutUs},
+        #{mobile},
+        #{webSite}
         )
     </insert>
 

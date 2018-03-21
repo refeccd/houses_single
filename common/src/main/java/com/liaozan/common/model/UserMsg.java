@@ -19,67 +19,67 @@ public class UserMsg {
 
 	private String userName;
 
-	public Long getId() {
+	public Long getId () {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId (Long id) {
 		this.id = id;
 	}
 
-	public String getMsg() {
+	public String getMsg () {
 		return msg;
 	}
 
-	public void setMsg(String msg) {
+	public void setMsg (String msg) {
 		this.msg = msg;
 	}
 
-	public Long getUserId() {
+	public Long getUserId () {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId (Long userId) {
 		this.userId = userId;
 	}
 
-	public Date getCreateTime() {
+	public Date getCreateTime () {
 		return createTime;
 	}
 
-	public void setCreateTime(Date createTime) {
+	public void setCreateTime (Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public Long getAgentId() {
+	public Long getAgentId () {
 		return agentId;
 	}
 
-	public void setAgentId(Long agentId) {
+	public void setAgentId (Long agentId) {
 		this.agentId = agentId;
 	}
 
-	public Long getHouseId() {
+	public Long getHouseId () {
 		return houseId;
 	}
 
-	public void setHouseId(Long houseId) {
+	public void setHouseId (Long houseId) {
 		this.houseId = houseId;
 	}
 
-	public String getEmail() {
+	public String getEmail () {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail (String email) {
 		this.email = email;
 	}
 
-	public String getUserName() {
+	public String getUserName () {
 		return userName;
 	}
 
-	public void setUserName(String userName) {
+	public void setUserName (String userName) {
 		this.userName = userName;
 	}
 }

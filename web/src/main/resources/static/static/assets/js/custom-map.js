@@ -69,17 +69,17 @@ function createHomepageGoogleMap(_latitude, _longitude) {
 				});
 				newMarkers.push(marker);
 				boxText.innerHTML =
-						'<div class="infobox-inner">' +
-						'<a href="' + locations[i][5] + '">' +
-						'<div class="infobox-image" style="position: relative">' +
-						'<img src="' + locations[i][6] + '">' + '<div><span class="infobox-price">' + locations[i][2] + '</span></div>' +
-						'</div>' +
-						'</a>' +
-						'<div class="infobox-description">' +
-						'<div class="infobox-title"><a href="' + locations[i][5] + '">' + locations[i][0] + '</a></div>' +
-						'<div class="infobox-location">' + locations[i][1] + '</div>' +
-						'</div>' +
-						'</div>';
+					'<div class="infobox-inner">' +
+					'<a href="' + locations[i][5] + '">' +
+					'<div class="infobox-image" style="position: relative">' +
+					'<img src="' + locations[i][6] + '">' + '<div><span class="infobox-price">' + locations[i][2] + '</span></div>' +
+					'</div>' +
+					'</a>' +
+					'<div class="infobox-description">' +
+					'<div class="infobox-title"><a href="' + locations[i][5] + '">' + locations[i][0] + '</a></div>' +
+					'<div class="infobox-location">' + locations[i][1] + '</div>' +
+					'</div>' +
+					'</div>';
 				//Define the infobox
 				newMarkers[i].infobox = new InfoBox(infoboxOptions);
 				google.maps.event.addListener(marker, 'click', (function (marker, i) {
@@ -263,20 +263,20 @@ function createHomepageOSM(_latitude, _longitude) {
 					icon: _icon
 				});
 				marker.bindPopup(
-						'<div class="property">' +
-						'<a href="' + locations[i][5] + '">' +
-						'<div class="property-image">' +
-						'<img src="' + locations[i][6] + '">' +
-						'</div>' +
-						'<div class="overlay">' +
-						'<div class="info">' +
-						'<div class="tag price"> ' + locations[i][2] + '</div>' +
-						'<h3>' + locations[i][0] + '</h3>' +
-						'<figure>' + locations[i][1] + '</figure>' +
-						'</div>' +
-						'</div>' +
-						'</a>' +
-						'</div>'
+					'<div class="property">' +
+					'<a href="' + locations[i][5] + '">' +
+					'<div class="property-image">' +
+					'<img src="' + locations[i][6] + '">' +
+					'</div>' +
+					'<div class="overlay">' +
+					'<div class="info">' +
+					'<div class="tag price"> ' + locations[i][2] + '</div>' +
+					'<h3>' + locations[i][0] + '</h3>' +
+					'<figure>' + locations[i][1] + '</figure>' +
+					'</div>' +
+					'</div>' +
+					'</a>' +
+					'</div>'
 				);
 				markers.addLayer(marker);
 			}

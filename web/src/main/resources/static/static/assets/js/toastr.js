@@ -151,10 +151,10 @@
 
 			function createContainer(options) {
 				$container = $('<div/>')
-						.attr('id', options.containerId)
-						.addClass(options.positionClass)
-						.attr('aria-live', 'polite')
-						.attr('role', 'alert');
+					.attr('id', options.containerId)
+					.addClass(options.positionClass)
+					.attr('aria-live', 'polite')
+					.attr('role', 'alert');
 
 				$container.appendTo($(options.target));
 				return $container;
@@ -262,11 +262,11 @@
 						source = "";
 
 					return new String(source)
-							.replace(/&/g, '&amp;')
-							.replace(/"/g, '&quot;')
-							.replace(/'/g, '&#39;')
-							.replace(/</g, '&lt;')
-							.replace(/>/g, '&gt;');
+						.replace(/&/g, '&amp;')
+						.replace(/"/g, '&quot;')
+						.replace(/'/g, '&#39;')
+						.replace(/</g, '&lt;')
+						.replace(/>/g, '&gt;');
 				}
 
 				function personalizeToast() {
@@ -307,7 +307,7 @@
 					$toastElement.hide();
 
 					$toastElement[options.showMethod](
-							{duration: options.showDuration, easing: options.showEasing, complete: options.onShown}
+						{duration: options.showDuration, easing: options.showEasing, complete: options.onShown}
 					);
 
 					if (options.timeOut > 0) {
@@ -376,7 +376,7 @@
 				function hideToast(override) {
 					var method = override && options.closeMethod !== false ? options.closeMethod : options.hideMethod;
 					var duration = override && options.closeDuration !== false ?
-							options.closeDuration : options.hideDuration;
+						options.closeDuration : options.hideDuration;
 					var easing = override && options.closeEasing !== false ? options.closeEasing : options.hideEasing;
 					if ($(':focus', $toastElement).length && !override) {
 						return;
@@ -409,7 +409,7 @@
 					clearTimeout(intervalId);
 					progressBar.hideEta = 0;
 					$toastElement.stop(true, true)[options.showMethod](
-							{duration: options.showDuration, easing: options.showEasing}
+						{duration: options.showDuration, easing: options.showEasing}
 					);
 				}
 

@@ -11,35 +11,35 @@ public class Community {
 	private String cityName;
 	private String name;
 
-	public Integer getId() {
+	public Integer getId () {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId (Integer id) {
 		this.id = id;
 	}
 
-	public String getCityCode() {
+	public String getCityCode () {
 		return cityCode;
 	}
 
-	public void setCityCode(String cityCode) {
+	public void setCityCode (String cityCode) {
 		this.cityCode = cityCode;
 	}
 
-	public String getCityName() {
+	public String getCityName () {
 		return cityName;
 	}
 
-	public void setCityName(String cityName) {
+	public void setCityName (String cityName) {
 		this.cityName = cityName;
 	}
 
-	public String getName() {
+	public String getName () {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName (String name) {
 		this.name = name;
 	}
 }

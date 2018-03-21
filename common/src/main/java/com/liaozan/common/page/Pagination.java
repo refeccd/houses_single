@@ -15,7 +15,7 @@ public class Pagination {
 	private long totalCount;
 	private List<Integer> pages = Lists.newArrayList();
 
-	public Pagination(Integer pageSize, Integer pageNum, Long totalCount) {
+	public Pagination (Integer pageSize, Integer pageNum, Long totalCount) {
 		this.totalCount = totalCount;
 		this.pageNum = pageNum;
 		this.pageSize = pageSize;
@@ -30,35 +30,35 @@ public class Pagination {
 		}
 	}
 
-	public int getPageNum() {
+	public int getPageNum () {
 		return pageNum;
 	}
 
-	public void setPageNum(int pageNum) {
+	public void setPageNum (int pageNum) {
 		this.pageNum = pageNum;
 	}
 
-	public int getPageSize() {
+	public int getPageSize () {
 		return pageSize;
 	}
 
-	public void setPageSize(int pageSize) {
+	public void setPageSize (int pageSize) {
 		this.pageSize = pageSize;
 	}
 
-	public long getTotalCount() {
+	public long getTotalCount () {
 		return totalCount;
 	}
 
-	public void setTotalCount(long totalCount) {
+	public void setTotalCount (long totalCount) {
 		this.totalCount = totalCount;
 	}
 
-	public List<Integer> getPages() {
+	public List<Integer> getPages () {
 		return pages;
 	}
 
-	public void setPages(List<Integer> pages) {
+	public void setPages (List<Integer> pages) {
 		this.pages = pages;
 	}
 }

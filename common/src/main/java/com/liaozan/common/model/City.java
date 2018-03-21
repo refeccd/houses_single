@@ -10,27 +10,27 @@ public class City {
 	private String cityName;
 	private String cityCode;
 
-	public Integer getId() {
+	public Integer getId () {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId (Integer id) {
 		this.id = id;
 	}
 
-	public String getCityName() {
+	public String getCityName () {
 		return cityName;
 	}
 
-	public void setCityName(String cityName) {
+	public void setCityName (String cityName) {
 		this.cityName = cityName;
 	}
 
-	public String getCityCode() {
+	public String getCityCode () {
 		return cityCode;
 	}
 
-	public void setCityCode(String cityCode) {
+	public void setCityCode (String cityCode) {
 		this.cityCode = cityCode;
 	}
 

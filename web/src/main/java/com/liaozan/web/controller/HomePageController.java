@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -21,12 +20,12 @@ public class HomePageController {
 	private RecommandService recommendService;
 
 	@GetMapping("index")
-	public String accountsRegister(ModelMap modelMap) {
+	public String accountsRegister (ModelMap modelMap) {
 		return "redirect:/";
 	}
 
 	@GetMapping("")
-	public String index(ModelMap modelMap) {
+	public String index (ModelMap modelMap) {
 		List<House> houses = recommendService.getLastest();
 		modelMap.put("recomHouses", houses);
 		return "/homepage/index";

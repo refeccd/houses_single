@@ -18,7 +18,7 @@ public class CityService {
 	@Autowired
 	private CityMapper cityMapper;
 
-	public List<City> getAllCitys() {
+	public List<City> getAllCitys () {
 		return cityMapper.getAllCitys();
 	}
 

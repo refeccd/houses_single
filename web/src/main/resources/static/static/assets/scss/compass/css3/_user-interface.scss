@@ -2,7 +2,6 @@
 // This file can be expanded to handle all the user interface properties as
 // they become available in browsers:
 // http://www.w3.org/TR/2000/WD-css3-userint-20000216
-
 @import "compass/support";
 
 // The prefixed support threshold for user-select.
@@ -14,13 +13,13 @@ $userselect-support-threshold: $graceful-usage-threshold !default;
 // @param $select
 //   [ none | text | toggle | element | elements | all | inherit ]
 @mixin user-select($select) {
-  $select: unquote($select);
+    $select: unquote($select);
 
-  @include with-each-prefix(user-select-none, $userselect-support-threshold) {
-    // old Firefox used a proprietary `-moz-none` value, starting with Firefox 21 `none` behaves like `-moz-none`
-    // @link https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
-    @include prefix-prop(user-select, if($current-prefix == -moz and $select == 'none', -moz-none, $select));
-  }
+    @include with-each-prefix(user-select-none, $userselect-support-threshold) {
+        // old Firefox used a proprietary `-moz-none` value, starting with Firefox 21 `none` behaves like `-moz-none`
+        // @link https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
+        @include prefix-prop(user-select, if($current-prefix == -moz and $select == 'none', -moz-none, $select));
+    }
 }
 
 // The prefixed support threshold for input-placeholder.
@@ -51,21 +50,27 @@ $input-placeholder-support-threshold: $graceful-usage-threshold !default;
 //       }
 //     }
 @mixin input-placeholder {
-  @include with-each-prefix(css-placeholder, $input-placeholder-support-threshold) {
-    @if $current-prefix == -webkit {
-      &::-webkit-input-placeholder { @content; }
+    @include with-each-prefix(css-placeholder, $input-placeholder-support-threshold) {
+        @if $current-prefix == -webkit {
+            &::-webkit-input-placeholder {
+                @content;
+            }
+        } @else if $current-prefix == -moz {
+            // for Firefox 19 and below
+            @if support-legacy-browser("firefox", "4", "19", $threshold: $input-placeholder-support-threshold) {
+                &:-moz-placeholder {
+                    @content;
+                }
+            }
+            // for Firefox 20 and above
+            &::-moz-placeholder {
+                @content;
+            }
+        } @else if $current-prefix == -ms {
+            &:-ms-input-placeholder {
+                @content;
+            }
+        }
     }
-    @elseif $current-prefix == -moz {
-      // for Firefox 19 and below
-      @if support-legacy-browser("firefox", "4", "19", $threshold: $input-placeholder-support-threshold) {
-        &:-moz-placeholder { @content; }
-      }
-      // for Firefox 20 and above
-      &::-moz-placeholder { @content; }
-    }
-    @elseif $current-prefix == -ms {
-      &:-ms-input-placeholder { @content; }
-    }
-  }
-  // This is not standardized yet so no official selector is generated.
+    // This is not standardized yet so no official selector is generated.
 }
