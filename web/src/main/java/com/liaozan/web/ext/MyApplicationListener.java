@@ -21,6 +21,7 @@ public class MyApplicationListener implements ApplicationListener<ApplicationEve
 
 	@Override
 	public void onApplicationEvent (ApplicationEvent event) {
+		eventPublisher.publishEvent(event);
 		log.debug("{}", event);
 	}
 }
