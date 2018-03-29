@@ -13,7 +13,7 @@ mybatis:
     map-underscore-to-camel-case: true
 customerapplication:
   config:
-    domain: 129.79.7.142:8091
+    domain: 120.79.7.142:8091
     savapath: /usr/developer/images
     nginxserverprefix: http://120.79.7.142:8081/images
-    redis-server-url: 129.79.7.142
+    redis-server-url: 120.79.7.142
