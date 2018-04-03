@@ -16,7 +16,6 @@ public class MyApplicationListener implements ApplicationListener<ApplicationEve
 
 	@Override
 	public void onApplicationEvent (ApplicationEvent event) {
-		Object eventSource = event.getSource();
 		log.debug("{}", event);
 	}
 }
