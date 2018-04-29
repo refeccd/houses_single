@@ -59,4 +59,8 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <finalName>biz</finalName>
+    </build>
+
 </project>
