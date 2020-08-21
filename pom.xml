@@ -18,7 +18,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <springboot.version>2.3.3.RELEASE</springboot.version>
     </properties>
 
     <dependencies>
@@ -47,17 +46,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-devtools</artifactId>
-                <version>${springboot.version}</version>
-                <optional>true</optional>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <modules>
         <module>biz</module>
